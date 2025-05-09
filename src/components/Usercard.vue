@@ -33,12 +33,9 @@
 
     <!-- Cards Container -->
     <div class="relative">
-  <div class="flex flex-nowrap gap-6 overflow-x-auto pb-4 scrollbar-hide">
+  <div class="flex flex-nowrap gap-6 overflow-x-auto pb-4 scrollbar-hide ">
     <div v-for="(lead, index) in filteredLeads" :key="index" class="rounded-2xl p-4 relative shadow-lg flex flex-col gap-4 
-        w-[325px] h-[250px] flex-shrink-0 ":style="{ 'background-image': `url('src/assets/cardbg.png')`,
-       'background-size': 'cover',
-       'background-position': 'center',
-       'background-repeat': 'no-repeat'  }">
+        w-[325px] h-[250px] flex-shrink-0 card">
 
       <!-- Social Icons at top right -->
       <div class="absolute top-0 right-2.5 flex gap-2">
@@ -156,5 +153,14 @@ export default {
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+.card{
+  background-image: url('./../assets/cardbg.png');
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  gap:10px
 }
 </style>
