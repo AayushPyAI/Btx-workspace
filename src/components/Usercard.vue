@@ -160,7 +160,6 @@ export default {
   background-size:cover;
   background-position: center;
   background-repeat: no-repeat;
-  display: flex;
-  gap:10px
+  border-radius: 30px;
 }
 </style>
