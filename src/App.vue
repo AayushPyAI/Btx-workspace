@@ -1,6 +1,9 @@
 <template>
-<div class="flex min-h-screen text-red-500 bg-gradient-to-b from-black to-gray-900">
-    <!-- <Navbar/> -->
+    
+<div class="min-h-screen bg-gradient-to-b from-black to-gray-900">
+
+  <Navbar/>
+<div class="flex">
     <div class="w-16 fixed h-full"> <!-- Sidenav fixed width and full height -->
         <Sidenav/>
     </div>
@@ -9,6 +12,8 @@
       <Usercard/>
     </div>
 </div>
+</div>
+
    
 </template>
 

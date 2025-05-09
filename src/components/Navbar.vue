@@ -1,153 +1,45 @@
 <template>
-    <div class="relative w-full h-[90px]">
-      <nav class="fixed w-full left-0 h-[90px] top-0">
-        <div class="mx-auto max-w-[1513px] h-[90px]">
-          <div class="relative w-full h-[90px] rounded-[45px] bg-white shadow-lg">
-            <!-- Right arrow button -->
-            <button @click="handleRightArrowClick" class="absolute w-16 h-16 top-[13px] right-[16px] rounded-[32px] border-2 border-solid border-[#f2f4f6] flex items-center justify-center hover:bg-gray-50">
-              <img class="w-3.5 h-3.5" src="https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/chevron-right.svg" alt="Arrow" />
-            </button>
-  
-            <!-- Orange schedule section -->
-            <div class="absolute w-[1053px] h-[90px] top-0 right-0">
-              <div class="absolute w-[1047px] h-[90px] top-0 left-0 bg-[#ff8300] rounded-[47.5px]">
-                <div class="absolute w-[1053px] h-[76px] top-2 left-0">
-                  <!-- Left section with time and controls -->
-                  <div class="absolute w-[777px] h-[76px] top-0 left-0">
-                    <div class="absolute w-[777px] h-[58px] top-2.5 left-0 rounded-[47.5px] [background:linear-gradient(90deg,rgba(108,59,7,0.08)_0%,rgba(126,69,8,0.15)_100%)]"></div>
-                    <div class="absolute top-7 left-[265px] font-medium text-white text-[15px]">{{ currentTime }}</div>
-                    <div class="absolute top-8 left-[88px] font-medium text-white text-xs">{{ duration }}</div>
-  
-                    <!-- Control buttons -->
-                    <button @click="handleLeftArrowClick" class="absolute w-12 h-12 top-[15px] left-[147px] rounded-3xl border-[1.4px] border-solid border-[#00000014] flex items-center justify-center hover:bg-white/10">
-                      <img class="w-[11px] h-[11px]" src="https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/chevron-left.svg" alt="Arrow" />
-                    </button>
-  
-                    <button @click="handleControlClick" class="absolute w-12 h-12 top-[15px] left-[725px] rounded-3xl border-[1.4px] border-solid border-[#00000014] flex items-center justify-center hover:bg-white/10">
-                      <img class="w-[17px] h-3.5" src="https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/player-play.svg" alt="Group" />
-                    </button>
-  
-                    <!-- User avatars section -->
-                    <div class="absolute w-[157px] h-[58px] top-2.5 left-[365px] bg-white rounded-[29px]">
-                      <div class="relative w-[82px] h-12 top-[5px] left-1">
-                        <div v-for="(user, index) in users.slice(0, 2)" :key="user.id"
-                             :class="['absolute w-12 h-12 top-0', index === 1 ? 'left-[34px]' : 'left-0']">
-                          <div :class="['relative', index === 1 ? 'w-[52px] h-[52px] -top-0.5 -left-0.5 bg-white rounded-[25px]' : 'w-12 h-12 bg-[#d9d9d9] rounded-3xl border border-solid border-white']">
-                            <img :src="user.avatarUrl" :alt="user.name" class="w-full h-full object-cover" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-  
-                    <img class="absolute w-[66px] h-[74px] top-0 left-0" src="https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/users.svg" alt="Mask group" />
-  
-                    <!-- Time indicator -->
-                    <div class="absolute w-[57px] h-[75px] top-px left-[495px]">
-                      <div class="relative w-[55px] h-[75px]">
-                        <img class="absolute w-2.5 h-[9px] top-[62px] left-[23px]" src="https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/chevron-down.svg" alt="Polygon" />
-                        <img class="absolute w-[55px] h-7 top-0 left-0" src="https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/calendar.svg" alt="Union" />
-                        <div class="absolute w-0.5 h-[33px] top-[29px] left-[27px] bg-[#000000b2]"></div>
-                        <div class="top-[5px] left-2 text-[11px] absolute font-medium text-white">{{ currentTime }}</div>
-                      </div>
-                    </div>
-  
-                    <div class="absolute w-px h-[43px] top-[18px] left-[234px] bg-gray-300"></div>
-                  </div>
-  
-                  <!-- Right section with avatars -->
-                  <div class="absolute w-36 h-[54px] top-2.5 left-[903px]">
-                    <div class="absolute w-[125px] h-[54px] top-0 left-[19px] rounded-[47.5px_23px_25px_47.5px] [background:linear-gradient(270deg,rgba(254,145,30,0)_11%,rgba(254,145,30,1)_22%)]"></div>
-                    <div class="absolute w-[82px] h-12 top-[3px] left-0">
-                      <div class="relative h-12">
-                        <div v-for="(user, index) in users.slice(2, 4)" :key="user.id"
-                             :class="['absolute w-12 h-12 top-0', index === 1 ? 'left-[34px]' : 'left-0']">
-                          <div :class="['relative', index === 1 ? 'w-[52px] h-[52px] -top-0.5 -left-0.5 bg-white rounded-[25px]' : 'w-12 h-12 bg-[#d9d9d9] rounded-3xl border border-solid border-white']">
-                            <img :src="user.avatarUrl" :alt="user.name" class="w-full h-full object-cover" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-  
-                  <div class="top-7 left-[828px] text-[15px] absolute font-medium text-white">{{ currentTime }}</div>
-                  <div class="absolute w-px h-[43px] top-[18px] left-[804px] bg-gray-300"></div>
-                </div>
-              </div>
-            </div>
-  
-            <!-- Title -->
-            <div class="absolute top-[31px] left-[27px] font-medium text-black text-2xl">{{ title }}</div>
-  
-            <!-- Date selector -->
-            <button @click="handleDateClick" class="absolute w-[169px] h-14 top-[17px] left-[199px] rounded-[28px] border border-solid border-[#adb9c8] flex items-center hover:bg-gray-50">
-              <div class="absolute w-[46px] h-[46px] top-[5px] left-1 bg-[#e5ebf1] rounded-[23px]"></div>
-              <img class="absolute w-5 h-5 top-[17px] left-4" src="https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/calendar-event.svg" alt="Calendar" />
-              <span class="absolute top-[17px] left-[63px] font-medium text-black text-lg">{{ currentDate }}</span>
-            </button>
-          </div>
-        </div>
-  
-        <!-- Logo -->
-        <img class="absolute w-[46px] h-[46px] top-[22px] left-0" src="https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/brand-vue.svg" alt="Logo" />
-  
-        <!-- Notification button -->
-        <button @click="handleNotificationClick" class="absolute w-[61px] h-[61px] top-[15px] right-[133px] bg-[#222222] rounded-[30.5px] flex items-center justify-center hover:bg-[#333333]">
-          <div class="relative w-[23px] h-[26px]">
-            <div class="absolute w-[23px] h-[21px] top-0 left-0">
-              <svg xmlns="http://www.w3.org/2000/svg" class="absolute w-[22px] h-5 top-px left-0 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-              </svg>
-              <div v-if="hasNotifications" class="absolute w-[9px] h-[9px] top-0 left-3.5 bg-[#cb122d] rounded-[4.5px] border border-solid border-[#161616]"></div>
-            </div>
-            <img class="absolute w-2.5 h-1 top-[22px] left-1.5" src="https://cdn.jsdelivr.net/gh/tabler/tabler-icons/icons/bell.svg" alt="Vector" />
-          </div>
-        </button>
-  
-        <!-- User profile -->
-        <div @click="handleProfileClick" class="absolute w-[61px] h-[61px] top-[15px] right-[61px] bg-[#222222] rounded-[30.5px] overflow-hidden cursor-pointer hover:opacity-90">
-          <img :src="currentUser.avatarUrl" :alt="currentUser.name" class="w-full h-full object-cover" />
-        </div>
-      </nav>
+  <nav class="bg-black text-white flex items-center justify-between p-4">
+    <div class="flex items-center">
+      <div v-html="logo" class="w-10 h-10"></div>
     </div>
-  </template>
-  
-  <script setup lang="ts">
-  import { ref, onMounted } from 'vue';
-  
-  // Props / state
-  const currentTime = ref('2:15 PM');
-  const duration = ref('36mm');
-  const title = ref('Your Schedule');
-  const currentDate = ref('March 28');
-  const hasNotifications = ref(true);
-  
-  const users = ref([
-    { id: 1, name: 'User 1', avatarUrl: 'https://i.pravatar.cc/52?img=1' },
-    { id: 2, name: 'User 2', avatarUrl: 'https://i.pravatar.cc/52?img=2' },
-    { id: 3, name: 'User 3', avatarUrl: 'https://i.pravatar.cc/52?img=3' },
-    { id: 4, name: 'User 4', avatarUrl: 'https://i.pravatar.cc/52?img=4' }
-  ]);
-  
-  const currentUser = ref({
-    name: 'Current User',
-    avatarUrl: 'https://i.pravatar.cc/61?img=5'
-  });
-  
-  // Event handlers
-  const handleRightArrowClick = () => { console.log('Right arrow clicked'); };
-  const handleLeftArrowClick = () => { console.log('Left arrow clicked'); };
-  const handleControlClick = () => { console.log('Control clicked'); };
-  const handleDateClick = () => { console.log('Date selector clicked'); };
-  const handleNotificationClick = () => { console.log('Notification clicked'); hasNotifications.value = !hasNotifications.value; };
-  const handleProfileClick = () => { console.log('Profile clicked'); };
-  
-  // Update time every second
-  onMounted(() => {
-    setInterval(() => {
-      const now = new Date();
-      currentTime.value = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
-    }, 1000);
-  });
-  </script>
-  
+    <div class="flex items-center space-x-4">
+      <div class="relative bg-[#161616] p-3 rounded-full">
+        <svg width="23" height="23" viewBox="0 0 24 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M19.9163 18.9431H4.08342V20.8677H19.9163V18.9431ZM19.1531 9.48483L19.5956 13.3911L21.5081 13.1745L21.0655 9.26818L19.1531 9.48483ZM4.404 13.3911L4.8465 9.48483L2.93412 9.26818L2.49162 13.1745L4.404 13.3911ZM3.05301 16.5254C3.80317 15.6424 4.27282 14.5492 4.404 13.3911L2.49162 13.1745C2.4029 13.9577 2.08575 14.6913 1.58628 15.2791L3.05301 16.5254ZM19.5956 13.3911C19.7269 14.5492 20.1965 15.6424 20.9466 16.5254L22.4134 15.2791C21.9139 14.6913 21.5967 13.9577 21.5081 13.1745L19.5956 13.3911ZM4.08342 18.9431C2.94559 18.9431 2.22183 17.5036 3.05301 16.5254L1.58628 15.2791C-0.234427 17.4222 1.19411 20.8677 4.08342 20.8677V18.9431ZM19.9163 20.8677C22.8055 20.8677 24.2341 17.4222 22.4134 15.2791L20.9466 16.5254C21.7778 17.5036 21.0541 18.9431 19.9163 18.9431V20.8677ZM21.0655 9.26818C20.5328 4.56586 16.6547 0.980011 11.9998 0.980011V2.90463C15.6312 2.90463 18.7256 5.71069 19.1531 9.48483L21.0655 9.26818ZM4.8465 9.48483C5.27404 5.71069 8.36842 2.90463 11.9998 2.90463V0.980011C7.34498 0.980011 3.4668 4.56586 2.93412 9.26818L4.8465 9.48483Z"
+            fill="#F2F4F6" />
+          <path
+            d="M16.7501 22.8092C16.9367 22.3115 16.6844 21.757 16.1867 21.5704C15.689 21.3839 15.1345 21.6361 14.9479 22.1338L16.7501 22.8092ZM9.05166 22.1338C8.86515 21.6361 8.31052 21.3839 7.81285 21.5704C7.31518 21.757 7.06294 22.3115 7.24945 22.8092L9.05166 22.1338ZM14.9479 22.1338C14.5339 23.2387 13.3914 24.0754 11.9998 24.0754V26C14.1624 26 16.0435 24.6945 16.7501 22.8092L14.9479 22.1338ZM11.9998 24.0754C10.6082 24.0754 9.46571 23.2387 9.05166 22.1338L7.24945 22.8092C7.95598 24.6945 9.83716 26 11.9998 26V24.0754Z"
+            fill="#F2F4F6" />
+          <circle cx="19.5" cy="4.5" r="4" fill="#CB122D" stroke="#161616" />
+        </svg>
+
+      </div>
+         <div class="bg-[#161616] p-2 rounded-full">
+        <img src="../assets/avatar.png" alt="Avatar" class="w-8 h-8 rounded-full" />
+      </div>
+    </div>
+  </nav>
+</template>
+
+<script setup>
+const logo = `<svg width="36" height="36" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" clip-rule="evenodd"
+    d="M23 9.29787C15.4325 9.29787 9.29787 15.4325 9.29787 23C9.29787 30.5675 15.4325 36.7021 23 36.7021C30.5675 36.7021 36.7021 30.5675 36.7021 23C36.7021 18.8764 34.8473 15.5208 32.4617 13.2945C32.0976 12.9547 32.0003 12.4069 32.2584 11.981L36.1818 5.50556C36.4878 5.00055 37.1638 4.86791 37.6194 5.24346C42.7297 9.45543 46 15.8463 46 23C46 35.7025 35.7025 46 23 46C10.2975 46 0 35.7025 0 23C0 10.2975 10.2975 0 23 0C25.418 0 27.7563 0.37469 29.9555 1.07177C30.5194 1.2505 30.7747 1.89192 30.5149 2.42334L27.2993 9.001C27.0792 9.45114 26.5616 9.66072 26.0751 9.54082C25.0894 9.29787 24.3337 9.29787 23 9.29787Z"
+    fill="url(#paint0_linear_33_776)" />
+  <defs>
+    <linearGradient id="paint0_linear_33_776" x1="6.3617" y1="7.34043" x2="39.3936"
+      y2="38.9043" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#CB122D" />
+      <stop offset="1" stop-color="#FF8300" />
+    </linearGradient>
+  </defs>
+</svg>`;
+</script>
+
+<style scoped>
+nav {
+  background-color: #000000;
+}
+</style>
