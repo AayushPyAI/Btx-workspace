@@ -35,7 +35,7 @@
     <div class="relative">
   <div class="flex flex-nowrap gap-6 overflow-x-auto pb-4 scrollbar-hide">
     <div v-for="(lead, index) in filteredLeads" :key="index" class="rounded-2xl p-4 relative shadow-lg flex flex-col gap-4 
-        w-[325px] h-[250px] flex-shrink-0 ":style="{ 'background-image': `url('src/assets/card-bg.png')`,
+        w-[325px] h-[250px] flex-shrink-0 ":style="{ 'background-image': `url('src/assets/cardbg.png')`,
        'background-size': 'cover',
        'background-position': 'center',
        'background-repeat': 'no-repeat'  }">
