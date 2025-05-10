@@ -32,13 +32,11 @@
                     <div class="relative text-center flex flex-row  gap-3 items-end justify-end">
                         <!-- <span class="absolute top-3 -right-4 text-xs bg-green-300 rounded-full px-1 text-black">↑3</span> -->
                         <div
-                            class="flex items-center absolute top-3 -right-4  space-x-1 bg-[#C0F573] rounded-full px-[3px] py-0">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384.923 384.923"
-                                class="h-3 w-2.5 m-0 text-gray-400" fill="#30561A">
-                                <path d="M321.337,122.567L201.046,3.479c-4.776-4.728-12.391-4.547-17.179,0l-120.291,119.1c-4.74,4.704-4.74,12.319,0,17.011
-               c4.752,4.704,12.439,4.704,17.191,0l99.551-98.552v331.856c0,6.641,5.438,12.03,12.151,12.03s12.151-5.39,12.151-12.03V41.025
-               l99.551,98.552c4.74,4.704,12.439,4.704,17.179,0C326.089,134.886,326.089,127.27,321.337,122.567z" />
-                            </svg>
+                            class="flex items-center absolute top-3 -right-4   bg-[#C0F573] rounded-xl py-0.5 px-2  font-bold">
+                            <svg width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.81191 12.3119L4.81197 2.63407L1.65236 5.79367L0.679347 4.82065L5.49999 7.93536e-06L10.3206 4.82065L9.34762 5.79367L6.18803 2.63408L6.18808 12.3119L4.81191 12.3119Z" fill="#30561A"/>
+</svg>
+
                             <span class="text-[13px] text-[#30561A] font-bold ">3</span>
                         </div>
                         <div class="text-[45px] xl:text-[60px] text-primary leading-none">
@@ -49,12 +47,11 @@
                     <div class="relative text-center flex flex-row  gap-3 items-end justify-end">
                         <!-- <span class="absolute top-3 -right-4 text-xs bg-red-300 rounded-full px-1 text-black">↓2</span> -->
                           <div
-                            class="flex items-center absolute top-3 -right-4  space-x-1 bg-[#FE9694] rounded-full px-[3px] py-0">
-                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384.923 384.923" class="h-3 w-2.5 m-0  text-gray-400 transform rotate-180" fill="#4B1A18">
-      <path d="M321.337,122.567L201.046,3.479c-4.776-4.728-12.391-4.547-17.179,0l-120.291,119.1c-4.74,4.704-4.74,12.319,0,17.011
-               c4.752,4.704,12.439,4.704,17.191,0l99.551-98.552v331.856c0,6.641,5.438,12.03,12.151,12.03s12.151-5.39,12.151-12.03V41.025
-               l99.551,98.552c4.74,4.704,12.439,4.704,17.179,0C326.089,134.886,326.089,127.27,321.337,122.567z"/>
-    </svg>
+                            class="flex items-center absolute top-3 -right-4  bg-[#FE9694] rounded-xl py-0.5 px-2">
+                            <svg width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.81191 0.688093L4.81197 10.3659L1.65236 7.20633L0.679347 8.17935L5.49999 13L10.3206 8.17935L9.34762 7.20633L6.18803 10.3659L6.18808 0.688093L4.81191 0.688093Z" fill="#4B1A18"/>
+</svg>
+
                             <span class="text-[13px] text-[#4B1A18] font-bold ">2</span>
                         </div>
                         <div class="text-primary text-[45px] xl:text-[60px] leading-none">20</div>
@@ -63,12 +60,11 @@
                     <div class="relative text-center flex flex-row  gap-3 items-end justify-end">
                         <!-- <span class="absolute top-3 -right-4 text-xs bg-red-300 rounded-full px-1 text-black">↓1</span> -->
                           <div
-                            class="flex items-center absolute top-3 -right-4  space-x-1 bg-[#FE9694] rounded-full px-[3px] py-0">
-                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384.923 384.923" class="h-3 w-2.5 m-0 text-gray-400 transform rotate-180" fill="#4B1A18">
-      <path d="M321.337,122.567L201.046,3.479c-4.776-4.728-12.391-4.547-17.179,0l-120.291,119.1c-4.74,4.704-4.74,12.319,0,17.011
-               c4.752,4.704,12.439,4.704,17.191,0l99.551-98.552v331.856c0,6.641,5.438,12.03,12.151,12.03s12.151-5.39,12.151-12.03V41.025
-               l99.551,98.552c4.74,4.704,12.439,4.704,17.179,0C326.089,134.886,326.089,127.27,321.337,122.567z"/>
-    </svg>
+                            class="flex items-center absolute top-3 -right-4  bg-[#FE9694] rounded-xl py-0.5 px-2">
+                            <svg width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.81191 0.688093L4.81197 10.3659L1.65236 7.20633L0.679347 8.17935L5.49999 13L10.3206 8.17935L9.34762 7.20633L6.18803 10.3659L6.18808 0.688093L4.81191 0.688093Z" fill="#4B1A18"/>
+</svg>
+
                             <span class="text-[13px] text-[#4B1A18] font-bold ">1</span>
                         </div>
                         <div class="text-primary text-[45px] xl:text-[60px] leading-none">3</div>
