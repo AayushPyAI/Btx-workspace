@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-black text-white flex items-center justify-between p-4">
+  <nav class="bg-black text-white flex items-center justify-between p-4 fixed w-full z-50 h-16 ">
     <div class="flex items-center">
       <div v-html="logo" class="w-10 h-10"></div>
     </div>

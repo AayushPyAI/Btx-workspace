@@ -3,11 +3,11 @@
 <div class="min-h-screen bg-gradient-to-b from-black to-gray-900">
 
   <Navbar/>
-<div class="flex">
-    <div class="w-16 fixed h-full"> <!-- Sidenav fixed width and full height -->
+<div class="flex pt-16">
+    <div class="w-16 fixed h-full top-16"> <!-- Sidenav fixed width and full height -->
         <Sidenav/>
     </div>
-    <div class="ml-16 flex-1 w-[calc(100%-64px)]"> <!-- Main content offset by sidenav width -->
+    <div class="ml-16 flex-1 w-[calc(100%-64px)] pl-4 pr-4"> <!-- Main content offset by sidenav width -->
       <Actionbar/>
       <Usercard/>
       <Usertaskcard/>
