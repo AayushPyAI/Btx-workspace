@@ -10,11 +10,11 @@
     <div class="ml-16 flex-1 w-[calc(100%-64px)]"> <!-- Main content offset by sidenav width -->
       <Actionbar/>
       <Usercard/>
+      <Usertaskcard/>
     </div>
 </div>
 </div>
 
-   
 </template>
 
 
@@ -24,9 +24,10 @@ import Actionbar from './components/Actionbar.vue';
 import Navbar from './components/Navbar.vue';
 import Sidenav from './components/Sidenav.vue';
 import Usercard from './components/Usercard.vue';
+import Usertaskcard from './components/Usertaskcard.vue';
 import './style.css'
 export default {
-  components:{Usercard, Navbar,Actionbar,Sidenav },
+  components:{Usercard, Navbar,Actionbar,Sidenav, Usertaskcard},
 mounted() {
     console.log("application mounted")
 
