@@ -35,7 +35,7 @@
 
     <!-- Cards Container -->
     <div class="relative">
-      <div class="flex flex-nowrap gap-6 overflow-x-auto pb-4 scrollbar-hide">
+      <div class="flex flex-nowrap gap-6 overflow-x-auto pb-4 scrollbar-hide pl-2.5">
         <div v-for="(task, index) in filteredTasks" :key="index"
           class="rounded-2xl p-4 relative  flex flex-col gap-4 min-w-[385px] min-h-[280px] flex-shrink-0 cardhover"
           :class="isLightTheme ? (index === 0 ? 'task-card' : 'task-card2') : (index === 0 ? 'task-card' : 'task-card-Light')">

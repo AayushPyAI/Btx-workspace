@@ -36,7 +36,7 @@
 
     <!-- Cards Container -->
     <div class="relative">
-      <div class="flex flex-nowrap gap-6 overflow-x-auto pb-4 scrollbar-hide">
+      <div class="flex flex-nowrap gap-6 overflow-x-auto pb-4 scrollbar-hide pt-5 pl-2.5">
         <div v-for="(lead, index) in filteredLeads" :key="index"
           class="rounded-2xl p-4 relative flex flex-col gap-4 w-[325px] h-[250px] flex-shrink-0 cardhover" :style="cardStyle">
           <div class="absolute top-0 right-2.5 flex gap-2">
