@@ -21,7 +21,7 @@
 
       <div class="flex items-center gap-3 flex-nowrap overflow-x-auto scrollbar-hide">
         <button v-for="filter in filters" :key="filter" @click="selectedFilter = filter" :class="[
-          'px-4 py-2 rounded-full border text-sm transition-all flex-shrink-0 cursor-pointer transition-hover',
+          'px-4 py-2 rounded-full border text-sm transition-all flex-shrink-0 cursor-pointer transition-hover font-bold',
           selectedFilter === filter
             ? 'bg-white text-black'
             : 'bg-transparent hover:bg-white hover:text-black',

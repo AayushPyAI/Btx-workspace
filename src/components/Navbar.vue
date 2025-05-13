@@ -7,11 +7,11 @@
     </div>
     <div class="flex items-center space-x-4 gap-1.5">
        <button @click="toggleTheme" class="flex items-center m-0  p-3 rounded-full "
-        :class="isLightTheme ? 'bg-icon-dark' : 'bg-white'">
-        <span v-if="isLightTheme">
+        :class="isLightTheme ? ' bg-white' : ' bg-icon-light'">
+        <span v-if="!isLightTheme">
           <!-- Sun Icon -->
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
+            stroke="currentColor" >
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364l-1.414 1.414M6.05 17.95l-1.414 1.414M18.364 18.364l-1.414-1.414M6.05 6.05L4.636 7.464M12 8a4 4 0 100 8 4 4 0 000-8z" />
           </svg>
@@ -26,8 +26,8 @@
         </span>
 
       </button>
-      <div class="relative  p-3 rounded-full m-0" :class="isLightTheme ? 'bg-[#161616]' : 'bg-white'">
-        <svg width="23" height="23" viewBox="0 0 24 26" :class="isLightTheme ? 'text-[#fff]' : 'text-secondary'"
+      <div class="relative  p-3 rounded-full m-0 hover:bg-white bg-transparent border cursor-pointer"  :class="isLightTheme ? 'border-Primary' : 'border-Primary-dark'">
+        <svg width="18" height="18" viewBox="0 0 24 26" class="text-secondary"
           fill="#6E829E" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M19.9163 18.9431H4.08342V20.8677H19.9163V18.9431ZM19.1531 9.48483L19.5956 13.3911L21.5081 13.1745L21.0655 9.26818L19.1531 9.48483ZM4.404 13.3911L4.8465 9.48483L2.93412 9.26818L2.49162 13.1745L4.404 13.3911ZM3.05301 16.5254C3.80317 15.6424 4.27282 14.5492 4.404 13.3911L2.49162 13.1745C2.4029 13.9577 2.08575 14.6913 1.58628 15.2791L3.05301 16.5254ZM19.5956 13.3911C19.7269 14.5492 20.1965 15.6424 20.9466 16.5254L22.4134 15.2791C21.9139 14.6913 21.5967 13.9577 21.5081 13.1745L19.5956 13.3911ZM4.08342 18.9431C2.94559 18.9431 2.22183 17.5036 3.05301 16.5254L1.58628 15.2791C-0.234427 17.4222 1.19411 20.8677 4.08342 20.8677V18.9431ZM19.9163 20.8677C22.8055 20.8677 24.2341 17.4222 22.4134 15.2791L20.9466 16.5254C21.7778 17.5036 21.0541 18.9431 19.9163 18.9431V20.8677ZM21.0655 9.26818C20.5328 4.56586 16.6547 0.980011 11.9998 0.980011V2.90463C15.6312 2.90463 18.7256 5.71069 19.1531 9.48483L21.0655 9.26818ZM4.8465 9.48483C5.27404 5.71069 8.36842 2.90463 11.9998 2.90463V0.980011C7.34498 0.980011 3.4668 4.56586 2.93412 9.26818L4.8465 9.48483Z"
@@ -39,8 +39,8 @@
         </svg>
 
       </div>
-      <div class=" p-2 rounded-full" :class="isLightTheme ? 'bg-[#161616]' : 'bg-white'">
-        <img src="../assets/avatar.png" alt="Avatar" class="w-8 h-8 rounded-full" />
+      <div class=" p-2 rounded-full hover:bg-white bg-transparent border cursor-pointer"  :class="isLightTheme ? 'border-Primary' : 'border-Primary-dark'">
+        <img src="../assets/avatar.png" alt="Avatar" class="w-7 h-7 rounded-full" />
       </div>
     </div>
   </nav>

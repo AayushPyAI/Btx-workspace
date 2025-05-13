@@ -23,10 +23,10 @@
 
       <div class="flex items-center gap-3 flex-nowrap overflow-x-auto scrollbar-hide">
         <button v-for="filter in filters" :key="filter" @click="selectedFilter = filter" :class="[
-          'px-4 py-3 rounded-full border border-Primary text-sm transition-all flex-shrink-0 cursor-pointer transition-hover',
+          'px-4 py-2 rounded-full border border-Primary text-sm transition-all flex-shrink-0 cursor-pointer font-bold transition-hover',
           selectedFilter === filter
             ? 'bg-white text-black'
-            : 'bg-transparent text-secondary hover:bg-white hover:text-black', isLightTheme ? 'border-Primary text-secondary' : 'border-Primary-dark text-heading'
+            : 'bg-transparent hover:bg-white hover:text-black', isLightTheme ? 'border-Primary text-secondary' : 'border-Primary-dark text-heading'
         ]">
           <span v-if="filter === 'Hot'">🔥</span> {{ filter }}
         </button>

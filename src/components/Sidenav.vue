@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center  w-16 py-4 space-y-6 pt-7">
     <!-- Back button -->
-    <button class="rounded-full w-10 h-10 flex items-center justify-center" :class="isLightTheme ?  'bg-icon-dark' : 'bg-white'">
+      <button class="rounded-full w-10 h-10 flex items-center justify-center hover:bg-white bg-transparent border cursor-pointer" :class="isLightTheme ? 'border-Primary' : 'border-Primary-dark'">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary" fill="none" viewBox="0 0 24 24"
         stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -20,7 +20,7 @@
       </svg>
     </button>
 
-    <button class=" rounded-full w-10 h-10 flex items-center justify-center mb-1.5" :class="isLightTheme ?  'bg-icon-dark' : 'bg-white'">
+    <button class=" rounded-full w-10 h-10 flex items-center justify-center mb-1.5 hover:bg-white bg-transparent border cursor-pointer"  :class="isLightTheme ? 'border-Primary' : 'border-Primary-dark'">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary" fill="none" viewBox="0 0 24 24"
         stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -28,7 +28,7 @@
       </svg>
     </button>
 
-    <button class=" rounded-full w-10 h-10 flex items-center justify-center mb-1.5" :class="isLightTheme ?  'bg-icon-dark' : 'bg-white'">
+    <button class=" rounded-full w-10 h-10 flex items-center justify-center mb-1.5 hover:bg-white bg-transparent border cursor-pointer"  :class="isLightTheme ? 'border-Primary' : 'border-Primary-dark'">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary" fill="none" viewBox="0 0 24 24"
         stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -36,7 +36,7 @@
       </svg>
     </button>
 
-    <button class=" rounded-full w-10 h-10 flex items-center justify-center mb-1.5" :class="isLightTheme ?  'bg-icon-dark' : 'bg-white'">
+    <button class=" rounded-full w-10 h-10 flex items-center justify-center mb-1.5 hover:bg-white bg-transparent border cursor-pointer"  :class="isLightTheme ? 'border-Primary' : 'border-Primary-dark'">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary" fill="none" viewBox="0 0 24 24"
         stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
