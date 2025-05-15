@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen" :class="isLightTheme ? 'bg-primary' : 'bg-primary-dark'">
+  <div class="min-h-screen" :class="isDarkTheme ? 'bg-primary' : 'bg-primary-dark'">
     <Navbar />
     <div class="flex pt-16"> <!-- Add top padding equal to navbar height -->
       <div class="w-16 fixed top-16"> <!-- Offset sidenav to appear below navbar -->
@@ -32,7 +32,7 @@ export default {
   },
   computed: {
 
-    ...mapGetters(['isLightTheme']),
+    ...mapGetters(['isDarkTheme']),
   }
 }
 </script>

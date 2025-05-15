@@ -1,14 +1,14 @@
 <template>
   <nav class=" flex items-center justify-between p-4 fixed w-full z-50 h-18"
-    :class="isLightTheme ? 'bg-primary' : 'bg-primary-dark'">
+    :class="isDarkTheme ? 'bg-primary' : 'bg-primary-dark'">
     <div class="flex items-center">
       <div v-html="logo" class="w-10 h-10"></div>
 
     </div>
     <div class="flex items-center space-x-4 gap-1.5">
        <button @click="toggleTheme" class="flex items-center m-0  p-3 rounded-full "
-        :class="isLightTheme ? ' bg-white' : ' bg-icon-light'">
-        <span v-if="!isLightTheme">
+        :class="isDarkTheme ? ' bg-white' : ' bg-icon-light'">
+        <span v-if="!isDarkTheme">
           <!-- Sun Icon -->
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500" fill="none" viewBox="0 0 24 24"
             stroke="currentColor" >
@@ -26,7 +26,7 @@
         </span>
 
       </button>
-      <div class="relative  p-3 rounded-full m-0 hover:bg-white bg-transparent border cursor-pointer"  :class="isLightTheme ? 'border-Primary' : 'border-Primary-dark'">
+      <div class="relative  p-3 rounded-full m-0 hover:bg-white bg-transparent border cursor-pointer"  :class="isDarkTheme ? 'border-Primary' : 'border-Primary-dark'">
         <svg width="18" height="18" viewBox="0 0 24 26" class="text-secondary"
           fill="#6E829E" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -39,7 +39,7 @@
         </svg>
 
       </div>
-      <div class=" p-2 rounded-full hover:bg-white bg-transparent border cursor-pointer"  :class="isLightTheme ? 'border-Primary' : 'border-Primary-dark'">
+      <div class=" p-2 rounded-full hover:bg-white bg-transparent border cursor-pointer"  :class="isDarkTheme ? 'border-Primary' : 'border-Primary-dark'">
         <img src="../assets/avatar.png" alt="Avatar" class="w-7 h-7 rounded-full" />
       </div>
     </div>
@@ -68,7 +68,7 @@ export default {
   name: 'Navbar',
 
   computed: {
-    ...mapGetters(['isLightTheme'])
+    ...mapGetters(['isDarkTheme'])
   },
   methods: {
     ...mapMutations(['toggleTheme'])

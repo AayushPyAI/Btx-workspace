@@ -1,11 +1,11 @@
 <template>
-    <div class=" w-full flex justify-center" :class="isLightTheme ? 'bg-primary' : 'bg-primary-dark'">
+    <div class=" w-full flex justify-center" :class="isDarkTheme ? 'bg-primary' : 'bg-primary-dark'">
         <header class="w-full flex items-center px-6 py-4 rounded-lg">
             <!-- Left Section -->
             <div class="flex items-center flex-wrap space-x-4 gap-2">
 
                 <h1 class=" text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-[2.5rem] font-light tracking-wide xs:tracking-wider sm:tracking-widest whitespace-nowrap flex items-center"
-                    :class="isLightTheme ? 'text-primary' : 'text-primary-dark'">
+                    :class="isDarkTheme ? 'text-primary' : 'text-primary-dark'">
                     W<span
                         class="text-[18px] xs:text-[20px] sm:text-[24px] md:text-[28px] lg:text-[32px] inline-flex mr-1">
                         <svg width="36" height="36" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -22,8 +22,8 @@
                         </svg>
                     </span>RK AREA
                 </h1>
-                <button class="flex items-center  rounded-full pr-3 p-1.5 h-14" :class="isLightTheme ? 'text-black bg-white' : 'text-muted bg-black'">
-                    <div class="w-11 h-11 rounded-full flex items-center justify-center " :class="isLightTheme ? 'text-[#898989]  bg-[#D9D9D9]' : ' text-muted bg-[#272727]'"
+                <button class="flex items-center  rounded-full pr-3 p-1.5 h-14" :class="isDarkTheme ? 'text-black bg-white' : 'text-muted bg-black'" @click="showModel = true" >
+                    <div class="w-11 h-11 rounded-full flex items-center justify-center " :class="isDarkTheme ? 'text-[#898989]  bg-[#D9D9D9]' : ' text-muted bg-[#272727]'"
                         >
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 " fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
@@ -33,6 +33,11 @@
 
                     <span class="ml-3  whitespace-nowrap">New Task</span>
                 </button>
+
+                <div>
+                    <Addtaskmodel v-if="showModel" @close="showModel = false"/>
+                </div>
+
 
                 <div class="flex items-center space-x-16">
 
@@ -50,7 +55,7 @@
                             <span class="text-[13px] text-[#30561A] font-bold ">3</span>
                         </div>
                         <div class="text-[45px] xl:text-[60px] leading-none"
-                            :class="isLightTheme ? 'text-primary' : 'text-primary-dark'">
+                            :class="isDarkTheme ? 'text-primary' : 'text-primary-dark'">
                             34
                         </div>
                         <div class="text-secondary text-[16px] mt-1">Deals</div>
@@ -68,7 +73,7 @@
                             <span class="text-[13px] text-[#4B1A18] font-bold ">2</span>
                         </div>
                         <div class=" text-[45px] xl:text-[60px] leading-none"
-                            :class="isLightTheme ? 'text-primary' : 'text-primary-dark'">20</div>
+                            :class="isDarkTheme ? 'text-primary' : 'text-primary-dark'">20</div>
                         <div class="text-secondary text-[16px] mt-1">won</div>
                     </div>
                     <div class="relative text-center flex flex-row  gap-3 items-end justify-end">
@@ -84,7 +89,7 @@
                             <span class="text-[13px] text-[#4B1A18] font-bold ">1</span>
                         </div>
                         <div class=" text-[45px] xl:text-[60px] leading-none"
-                            :class="isLightTheme ? 'text-primary' : 'text-primary-dark'">3</div>
+                            :class="isDarkTheme ? 'text-primary' : 'text-primary-dark'">3</div>
                         <div class="text-secondary text-[16px] mt-1">lost</div>
                     </div>
                 </div>
@@ -96,14 +101,25 @@
 <script>
 import { mapGetters } from 'vuex'
 
+
+import Addtaskmodel from './Addtaskmodel.vue';
+
 export default {
+
+    data(){
+        return {
+            showModel:false
+        }
+    },
     computed: {
-        ...mapGetters(['isLightTheme']),
+        ...mapGetters(['isDarkTheme']),
+    },
+    components:{
+        Addtaskmodel
     }
 }
-
 </script>
 
 <style scoped>
-/* Optional for additional customization */
+/* Optional: smooth transition for modal */
 </style>

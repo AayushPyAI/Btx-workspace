@@ -2,16 +2,16 @@ import { createStore } from 'vuex';
 
 const store = createStore({
   state: {
-    isLightTheme: true
+    isDarkTheme: true
   },
   mutations: {
     toggleTheme(state) {
         console.log("toggle theme hitted ", state)
-      state.isLightTheme = !state.isLightTheme;
+      state.isDarkTheme = !state.isDarkTheme;
     }
   },
   getters: {
-    isLightTheme: (state) => state.isLightTheme
+    isDarkTheme: (state) => state.isDarkTheme
   }
 });
 

@@ -3,19 +3,19 @@
     <!-- Header -->
     <div class="flex items-center gap-4 flex-wrap mb-6 whitespace-nowrap">
       <h2 class="text-xl sm:text-2xl font-semibold flex-shrink-0"
-        :class="isLightTheme ? 'text-primary' : 'text-primary-dark'">
+        :class="isDarkTheme ? 'text-primary' : 'text-primary-dark'">
         New Leads
       </h2>
       <span class="text-secondary text-xl flex-shrink-0 border-b-2 border-white">7 Leads</span>
 
       <button
         class="p-3 rounded-full bg-transparent text-heading border hover:bg-white hover:text-black transition-hover"
-        :class="isLightTheme ? 'border-Primary' : 'border-Primary-dark'">
+        :class="isDarkTheme ? 'border-Primary' : 'border-Primary-dark'">
         <span v-html="SearchIcon" />
       </button>
       <button
         class="p-3 rounded-full bg-transparent text-heading border hover:bg-white hover:text-black transition-hover"
-        :class="isLightTheme ? 'border-Primary' : 'border-Primary-dark'">
+        :class="isDarkTheme ? 'border-Primary' : 'border-Primary-dark'">
         <span v-html="FilterIcon" />
       </button>
 
@@ -25,7 +25,7 @@
           selectedFilter === filter
             ? 'bg-white text-black'
             : 'bg-transparent hover:bg-white hover:text-black',
-          isLightTheme
+          isDarkTheme
             ? 'border-Primary text-secondary'
             : 'border-Primary-dark text-heading',
         ]">
@@ -47,7 +47,7 @@
             </div> -->
               <button
         class="flex justify-center items-center p-3 rounded-full bg-transparent text-heading border hover:bg-white hover:text-black transition-hover w-[53px] h-[53px]"
-        :class="isLightTheme ? 'border-Primary' : 'border-Primary-dark'">
+        :class="isDarkTheme ? 'border-Primary' : 'border-Primary-dark'">
         <span v-html="ArrowRightIcon" />
       </button>
           </div>
@@ -56,7 +56,7 @@
 
           <div>
             <h3 class="text-[26px] font-medium mb-1 text-primary"
-              :class="isLightTheme ? 'text-primary' : 'text-primary-dark'">
+              :class="isDarkTheme ? 'text-primary' : 'text-primary-dark'">
               {{ lead.name }}
             </h3>
             <p class="text-[16px] text-secondary">{{ lead.role }}</p>
@@ -66,10 +66,10 @@
             <div class="flex justify-between items-start gap-4">
               <!-- Source Section -->
               <div class="flex flex-col gap-2">
-                <span class="text-[12px]" :class="isLightTheme ? 'text-muted' : 'text-secondary'">Source</span>
+                <span class="text-[12px]" :class="isDarkTheme ? 'text-muted' : 'text-secondary'">Source</span>
                 <div class="flex gap-2">
                   <button v-for="(source, i) in lead.sources" :key="i" class="px-2 py-1 rounded-full text-[12px]"
-                    :class="isLightTheme
+                    :class="isDarkTheme
                       ? 'text-primary bg-secondary'
                       : 'text-primary-dark bg-secondary-dark'
                       ">
@@ -80,11 +80,11 @@
 
               <!-- Hot Prospect Section -->
               <div class="flex flex-col gap-2">
-                <span class="text-[12px]" :class="isLightTheme ? 'text-muted' : 'text-secondary'">
+                <span class="text-[12px]" :class="isDarkTheme ? 'text-muted' : 'text-secondary'">
                   <span v-if="lead.tag === 'Hot Prospect'">🔥</span>
                   {{ lead.tag }}
                 </span>
-                <div class="flex items-center space-x-1 rounded-full px-2 py-1" :class="!isLightTheme ? 'border-Secondary-light' : ' border-Secondary'">
+                <div class="flex items-center space-x-1 rounded-full px-2 py-1" :class="!isDarkTheme ? 'border-Secondary-light' : ' border-Secondary'">
                   <span class="w-3 h-3 bg-[#FA9A90] rounded-full"></span>
                   <span class="w-3 h-3 bg-[#FEA269] rounded-full"></span>
                   <span class="w-3 h-3 bg-[#FDDB67] rounded-full"></span>
@@ -160,7 +160,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["isLightTheme"]),
+    ...mapGetters(["isDarkTheme"]),
 
     filteredLeads() {
       if (this.selectedFilter === "All") return this.leads;
@@ -169,7 +169,7 @@ export default {
     backgroundImageUrl() {
       const light = new URL("../assets/cardbg.png", import.meta.url).href;
       const dark = new URL("../assets/carddarkbg.png", import.meta.url).href;
-      return this.isLightTheme ? light : dark;
+      return this.isDarkTheme ? light : dark;
     },
     cardStyle() {
       return {
