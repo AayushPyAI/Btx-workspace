@@ -11,6 +11,7 @@
         <Usertaskcard />
       </div>
     </div>
+    <Addtaskmodel v-if="showModel" @close="closeModal" />
   </div>
 </template>
 
@@ -23,17 +24,21 @@ import Navbar from './components/Navbar.vue';
 import Sidenav from './components/Sidenav.vue';
 import Usercard from './components/Usercard.vue';
 import Usertaskcard from './components/Usertaskcard.vue';
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import './style.css'
+import Addtaskmodel from './components/Addtaskmodel.vue';
 export default {
-  components: { Usercard, Navbar, Actionbar, Sidenav, Usertaskcard },
+  components: { Usercard, Navbar, Actionbar, Sidenav, Usertaskcard, Addtaskmodel },
   mounted() {
     console.log("application mounted")
   },
   computed: {
 
-    ...mapGetters(['isDarkTheme']),
-  }
+    ...mapGetters(['isDarkTheme', 'showModel']),
+  },
+  methods: {
+    ...mapActions(["closeModal"]),
+  },
 }
 </script>
 
