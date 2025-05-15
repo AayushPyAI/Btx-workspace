@@ -274,7 +274,7 @@ export default {
 }
 
 .task-card-nonActive-dark {
-  background-image: url("./../assets/taskCard3.png");
+  background-image: url("./../assets/TaskCard3.png");
 }
 
 .lastIndexdark {
