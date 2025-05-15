@@ -1,78 +1,93 @@
 /* src/assets/tailwind.css */
-@import 'tailwindcss';
+@import "tailwindcss";
 
-body{
+body {
   font-family: "Wix Madefor Text", sans-serif;
 }
 
 /* Background  */
-.bg-primary{
-  background-color: #0f0f0f;
+.bg-primary {
+  background-color: #100c25;
 }
-.bg-primary-dark{
-  background-color: #F2F4F6;
+.bg-primary-dark {
+  background-color: #f2f4f6;
 }
-.bg-secondary{
-  background-color: #2E4C73;
+.bg-secondary {
+  background-color: #2e4c73;
 }
-.bg-secondary-dark{
-  background-color: #ADB9C852;
+.bg-secondary-dark {
+  background-color: #adb9c852;
 }
-.bg-icon-dark{
-  background-color: #222B36;
+.bg-icon-dark {
+  background-color: #222b36;
 }
-.bg-icon-light{
+.bg-icon-light {
   background-color: #002454;
 }
-.bg-white{
+.bg-white {
   background-color: #fff;
 }
-.bg-black{
+.bg-black {
   background-color: #000;
 }
-
+.bg-blue {
+  background-color: #1c0a6b;
+}
 
 /* Texts  */
-.text-primary{
-  color: #ffffff;
+.text-primary-dark {
+  color: #fff;
 }
-.text-primary-dark{
-  color: #000000;
-}
-
-.text-secondary{
-  color: #6E829E;
-}
-.text-secondary-faded{
-  color: #FFEAD4;
-}
-.text-muted{
-  color: #ADB9C8;
-}
-.text-heading{
-  color: #2E4C73;
-}
-.icon-color{
-  color: #BCBABA;
+.text-primary-light {
+  color: #1c0a6b;
 }
 
+.text-secondary {
+  color: #6e829e;
+}
+.text-secondary-faded {
+  color: #ffead4;
+}
+.text-muted {
+  color: #adb9c8;
+}
+.text-blue {
+  color: #1c0a6b;
+}
+.below-text {
+  color: #747087;
+}
+.text-heading {
+  color: #2e4c73;
+}
+.icon-color {
+  color: #bcbaba;
+}
+.btn-text {
+  color: #6b638e;
+}
+.text-blue {
+  color: #1c0a6b;
+}
 
 /* Borders  */
-.border-Primary{
-  border: 2px solid #191F27;
+.border-Primary {
+  border: 2px solid #191f27;
 }
-.border-Primary-dark{
-  border: 2px solid #D3DAE2;
- 
+.border-Primary-dark {
+  border: 2px solid #d3dae2;
 }
-.border-Secondary{
-  border: 1.3px solid #2E4C73; 
+.border-Secondary {
+  border: 1.3px solid #2e4c73;
 }
-.border-Secondary-light{
-  border: 1.3px solid #2E4C7326; 
+.border-Secondary-light {
+  border: 1.3px solid #2e4c7326;
 }
 .border-SecondaryOne {
-  border: 1.3px solid #ADB9C880;
+  border: 1.3px solid #adb9c880;
+}
+.border-blue {
+  border-bottom: 2px solid #1c0a6b;
 }
 
 .transition-hover {
@@ -89,4 +104,8 @@ body{
 .cardhover:hover {
   transform: translateY(-10px) scale(1.05); /* Move up and enlarge */
   z-index: 10; /* Bring it above other cards */
+}
+
+.bg-active-icon {
+  background-color: #6d40b5;
 }
