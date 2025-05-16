@@ -1,7 +1,9 @@
 <template>
   <div class="flex flex-col items-center  w-16 py-4 space-y-6 pt-7">
     <!-- Back button -->
-      <button class="rounded-full w-10 h-10 flex items-center justify-center hover:bg-white bg-transparent  cursor-pointer" :class="isDarkTheme ? 'bg-secondary-dark' : ' bg-white'">
+    <button @click="OPENSALESPAGE"
+      class="rounded-full w-10 h-10 flex items-center justify-center hover:bg-white bg-transparent  cursor-pointer"
+      :class="isDarkTheme ? 'bg-secondary-dark' : ' bg-white'">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary" fill="none" viewBox="0 0 24 24"
         stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -12,15 +14,18 @@
     <div class="flex-grow mt-18"></div>
 
     <!-- Main navigation buttons -->
-    <button class=" rounded-full w-10 h-10 flex items-center justify-center mb-1.5" :class="isDarkTheme ?  'bg-white' : 'bg-active-icon'">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 " :class="isDarkTheme ?  'text-secondary' : 'text-white'" fill="none" viewBox="0 0 24 24"
-        stroke="currentColor">
+    <button class=" rounded-full w-10 h-10 flex items-center justify-center mb-1.5"
+      :class="isDarkTheme ? 'bg-white' : 'bg-active-icon'">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 " :class="isDarkTheme ? 'text-secondary' : 'text-white'"
+        fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
           d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
       </svg>
     </button>
 
-    <button class=" rounded-full w-10 h-10 flex items-center justify-center mb-1.5 hover:bg-white bg-transparent  cursor-pointer"  :class="isDarkTheme ? ' bg-secondary-dark' : ' bg-white'">
+    <button
+      class=" rounded-full w-10 h-10 flex items-center justify-center mb-1.5 hover:bg-white bg-transparent  cursor-pointer"
+      :class="isDarkTheme ? ' bg-secondary-dark' : ' bg-white'">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary" fill="none" viewBox="0 0 24 24"
         stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -28,7 +33,9 @@
       </svg>
     </button>
 
-    <button class=" rounded-full w-10 h-10 flex items-center justify-center mb-1.5 hover:bg-white bg-transparent  cursor-pointer"  :class="isDarkTheme ? ' bg-secondary-dark' : ' bg-white'">
+    <button
+      class=" rounded-full w-10 h-10 flex items-center justify-center mb-1.5 hover:bg-white bg-transparent  cursor-pointer"
+      :class="isDarkTheme ? ' bg-secondary-dark' : ' bg-white'">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary" fill="none" viewBox="0 0 24 24"
         stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -36,7 +43,9 @@
       </svg>
     </button>
 
-    <button class=" rounded-full w-10 h-10 flex items-center justify-center mb-1.5 hover:bg-white bg-transparent  cursor-pointer"  :class="isDarkTheme ? ' bg-secondary-dark' : ' bg-white'">
+    <button
+      class=" rounded-full w-10 h-10 flex items-center justify-center mb-1.5 hover:bg-white bg-transparent  cursor-pointer"
+      :class="isDarkTheme ? ' bg-secondary-dark' : ' bg-white'">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary" fill="none" viewBox="0 0 24 24"
         stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -44,13 +53,11 @@
       </svg>
     </button>
 
-    <!-- Spacer -->
-    <div class="flex-grow"></div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "NewLeads",
   data() {
@@ -59,6 +66,9 @@ export default {
   },
   computed: {
     ...mapGetters(["isDarkTheme"]),
-  }
+  },
+  methods: {
+    ...mapActions(["OPENSALESPAGE"]),
+  },
 }
 </script>
