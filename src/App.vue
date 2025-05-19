@@ -2,19 +2,26 @@
   <div class="min-h-screen" :class="isDarkTheme ? 'bg-primary' : 'bg-primary-dark'">
     <!-- <Navbar /> -->
     <div v-if="showSalesPage">
-      <SalesNavbar />
+            <SalesNavbar />
       <TopBar class="" />
       <div class="flex  h-full w-full bg-gray-50 ">
         <!-- Left Container (30%) -->
-        <div class="w-[28%] min-w-[310px] border-r border-gray-200 bg-white overflow-y-auto">
+        <div class="w-[28%] min-w-[310px]  border-gray-200 bg-white overflow-y-auto">
           <SalesFiltercard />
         </div>
 
         <!-- Right Container (70%) -->
         <div class="w-[72%] bg-[#F8F6FC] overflow-y-auto">
           <!-- Your right content goes here -->
-           <RightSalesPage/>
-           <WorkQueueHeader/>
+          <RightSalesPage />
+          <div class="flex gap-3 w-full ">
+            <LeadInfoCard />
+            <CampaignCard />
+          </div>
+     <div class="w-full">
+        <Scoring />
+        </div>
+
         </div>
       </div>
     </div>
@@ -45,6 +52,7 @@ import Navbar from './components/Navbar.vue';
 import Sidenav from './components/Sidenav.vue';
 import Usercard from './components/Usercard.vue';
 import Usertaskcard from './components/Usertaskcard.vue';
+import Scoring from './components/salesEngagement/Scoring.vue';
 import { mapGetters, mapActions } from 'vuex'
 import './style.css'
 import Addtaskmodel from './components/Addtaskmodel.vue';
@@ -52,8 +60,10 @@ import SalesNavbar from './components/salesEngagement/SalesNavbar.vue';
 import TopBar from './components/salesEngagement/TopBar.vue';
 import SalesFiltercard from './components/salesEngagement/SalesFiltercard.vue';
 import RightSalesPage from './components/salesEngagement/RightSalesPage.vue';
+import LeadInfoCard from './components/salesEngagement/LeadInfoCard.vue';
+import CampaignCard from './components/salesEngagement/CampaignCard.vue';
 export default {
-  components: { Usercard, Navbar, Actionbar, Sidenav, Usertaskcard, Addtaskmodel, SalesNavbar, TopBar, SalesFiltercard,  RightSalesPage },
+  components: { Usercard, Navbar, Actionbar, Sidenav, Usertaskcard, Addtaskmodel, SalesNavbar, TopBar, SalesFiltercard, RightSalesPage, LeadInfoCard, CampaignCard,Scoring },
   mounted() {
     console.log("application mounted")
   },
