@@ -2,7 +2,7 @@
   <div class="min-h-screen" :class="isDarkTheme ? 'bg-primary' : 'bg-primary-dark'">
     <!-- <Navbar /> -->
     <div v-if="showSalesPage">
-      <SalesNavbar />
+            <SalesNavbar />
       <TopBar class="" />
       <div class="flex  h-full w-full bg-gray-50 ">
         <!-- Left Container (30%) -->
@@ -18,6 +18,10 @@
             <LeadInfoCard />
             <CampaignCard />
           </div>
+     <div class="w-full">
+        <Scoring />
+        </div>
+
         </div>
       </div>
     </div>
@@ -48,6 +52,7 @@ import Navbar from './components/Navbar.vue';
 import Sidenav from './components/Sidenav.vue';
 import Usercard from './components/Usercard.vue';
 import Usertaskcard from './components/Usertaskcard.vue';
+import Scoring from './components/salesEngagement/Scoring.vue';
 import { mapGetters, mapActions } from 'vuex'
 import './style.css'
 import Addtaskmodel from './components/Addtaskmodel.vue';
@@ -58,7 +63,7 @@ import RightSalesPage from './components/salesEngagement/RightSalesPage.vue';
 import LeadInfoCard from './components/salesEngagement/LeadInfoCard.vue';
 import CampaignCard from './components/salesEngagement/CampaignCard.vue';
 export default {
-  components: { Usercard, Navbar, Actionbar, Sidenav, Usertaskcard, Addtaskmodel, SalesNavbar, TopBar, SalesFiltercard, RightSalesPage, LeadInfoCard, CampaignCard },
+  components: { Usercard, Navbar, Actionbar, Sidenav, Usertaskcard, Addtaskmodel, SalesNavbar, TopBar, SalesFiltercard, RightSalesPage, LeadInfoCard, CampaignCard,Scoring },
   mounted() {
     console.log("application mounted")
   },
