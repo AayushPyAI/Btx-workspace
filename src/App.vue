@@ -6,15 +6,18 @@
       <TopBar class="" />
       <div class="flex  h-full w-full bg-gray-50 ">
         <!-- Left Container (30%) -->
-        <div class="w-[28%] min-w-[310px] border-r border-gray-200 bg-white overflow-y-auto">
+        <div class="w-[28%] min-w-[310px]  border-gray-200 bg-white overflow-y-auto">
           <SalesFiltercard />
         </div>
 
         <!-- Right Container (70%) -->
         <div class="w-[72%] bg-[#F8F6FC] overflow-y-auto">
           <!-- Your right content goes here -->
-           <RightSalesPage/>
-           <WorkQueueHeader/>
+          <RightSalesPage />
+          <div class="flex ">
+            <LeadInfoCard />
+            <CampaignCard />
+          </div>
         </div>
       </div>
     </div>
@@ -52,8 +55,10 @@ import SalesNavbar from './components/salesEngagement/SalesNavbar.vue';
 import TopBar from './components/salesEngagement/TopBar.vue';
 import SalesFiltercard from './components/salesEngagement/SalesFiltercard.vue';
 import RightSalesPage from './components/salesEngagement/RightSalesPage.vue';
+import LeadInfoCard from './components/salesEngagement/LeadInfoCard.vue';
+import CampaignCard from './components/salesEngagement/CampaignCard.vue';
 export default {
-  components: { Usercard, Navbar, Actionbar, Sidenav, Usertaskcard, Addtaskmodel, SalesNavbar, TopBar, SalesFiltercard,  RightSalesPage },
+  components: { Usercard, Navbar, Actionbar, Sidenav, Usertaskcard, Addtaskmodel, SalesNavbar, TopBar, SalesFiltercard, RightSalesPage, LeadInfoCard, CampaignCard },
   mounted() {
     console.log("application mounted")
   },

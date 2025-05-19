@@ -3,11 +3,8 @@
     <div class="p-6">
       <div class="flex items-center space-x-4">
         <div class="flex items-center space-x-2">
-          <img
-            src="https://randomuser.me/api/portraits/men/32.jpg"
-            alt="Miguel Braswell"
-            class="w-8 h-8 rounded-full object-cover"
-          />
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Miguel Braswell"
+            class="w-8 h-8 rounded-full object-cover" />
           <div>
             <p class="text-xs text-gray-400 leading-none">Contact</p>
             <p class="text-sm font-medium text-[#2d1c57]">Miguel Braswell</p>
@@ -17,8 +14,10 @@
         <!-- Company Info -->
         <div class="flex items-center space-x-2">
           <div class="bg-white p-1.5 rounded-full">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#2d1c57]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21h18M6 10h12M6 6h12M6 14h12M3 6v12h18V6" />
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-[#2d1c57]" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 21h18M6 10h12M6 6h12M6 14h12M3 6v12h18V6" />
             </svg>
           </div>
           <div>
@@ -27,20 +26,27 @@
           </div>
         </div>
       </div>
-
       <!-- Status Icons with Gradient Background - Updated with SVG icons -->
-      <div class="flex justify-between mt-8">
-        <div v-for="(status, index) in statuses" :key="index" class="flex flex-col items-center w-1/4">
-          <div class="w-12 h-12 rounded-full flex items-center justify-center mb-2"
-               :class="gradientClasses[index]">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path v-if="status.icon === 'user'" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              <path v-if="status.icon === 'briefcase'" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              <path v-if="status.icon === 'check'" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              <path v-if="status.icon === 'dollar'" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
+      <div class="w-full mt-2">
+        <!-- Gradient Background with Positioned Icons -->
+        <div class="icon-bg w-full flex items-center justify-between pt-[2px] px-[4px]">
+          <div v-for="(status, index) in statuses" :key="index" class="flex flex-col items-center">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center mb-1"
+              :class="index >= 2 ? 'bg-[#1C0A6B] shadow-md' : 'bg-white shadow-md'">
+              <button
+                class="flex justify-center items-center p-3 rounded-full bg-transparent transition-hover w-[33px] h-[33px]"
+                :class="index >= 2 ? 'text-white hover:bg-white/20 hover:text-white' : 'text-heading hover:bg-white hover:text-black'">
+                <span v-html="DollarIcon" />
+              </button>
+            </div>
           </div>
-          <span class="text-xs font-medium text-[#2d1c57] text-center">{{ status.label }}</span>
+        </div>
+
+        <!-- Labels container - positioned absolutely below the icon bg -->
+        <div class="flex justify-between px-[4px] -mt-1">
+          <div v-for="(status, index) in statuses" :key="index" class="w-10 text-center">
+            <span class="text-xs font-medium text-[#2d1c57]">{{ status.label }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -48,10 +54,13 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import { DollarIcon } from '../../assets/icons';
 export default {
   name: 'ContactCard',
   data() {
     return {
+      DollarIcon,
       statuses: [
         { label: 'Lead', icon: 'user' },
         { label: 'Working', icon: 'briefcase' },
@@ -65,6 +74,20 @@ export default {
         'bg-gradient-to-br from-yellow-400 to-yellow-600'
       ]
     }
-  }
+  },
+  computed: {
+    ...mapGetters(["isDarkTheme"]),
+  },
 }
 </script>
+<style scoped>
+/* Removed the icon-bg style as we're now using a direct gradient */
+.icon-bg {
+  height: 50px;
+  background-image: url('../../assets/image.png');
+  /* Adjust path if needed */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+</style>
