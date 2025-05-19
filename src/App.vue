@@ -14,7 +14,7 @@
         <div class="w-[72%] bg-[#F8F6FC] overflow-y-auto">
           <!-- Your right content goes here -->
           <RightSalesPage />
-          <div class="flex ">
+          <div class="flex gap-3 w-full ">
             <LeadInfoCard />
             <CampaignCard />
           </div>

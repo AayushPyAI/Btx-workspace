@@ -1,76 +1,71 @@
 <template>
-  <div class="max-w-sm p-4 rounded-2xl shadow-md bg-white border border-gray-200">
+  <div class="w-[360px] p-4 rounded-2xl shadow-md bg-white border border-gray-200">
     <!-- Header -->
     <div class="flex items-center justify-between mb-4">
       <div class="flex items-center gap-2">
-        <div class="bg-[#2A1A7E] p-2 rounded-full">
-          <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 1.75A10.25 10.25 0 1 0 22.25 12 10.26 10.26 0 0 0 12 1.75Zm.75 15.5a.75.75 0 1 1-1.5 0v-1.5a.75.75 0 1 1 1.5 0Zm0-3.75a.75.75 0 0 1-1.5 0V8a.75.75 0 0 1 1.5 0Z" />
-          </svg>
-        </div>
+         <button
+                    class="p-3 rounded-full bg-blue text-white border hover:bg-white hover:text-black transition-hover"
+                    :class="isDarkTheme ? (index === 0 ?'border-Primary-dark text-muted' : 'border-Primary-dark text-muted'): (!index === 0 ?'border-Primary' : 'border-Primary-dark')">
+                    <span v-html="DollarIcon" />
+                </button>
         <h2 class="text-[#2A1A7E] font-semibold">Lead Information</h2>
       </div>
       <div class="flex gap-2">
-        <div class="bg-gray-100 p-2 rounded-full">
-          <svg class="w-4 h-4 text-[#2A1A7E]" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 5a1 1 0 0 1 1 1v5h5a1 1 0 1 1 0 2h-5v5a1 1 0 1 1-2 0v-5H6a1 1 0 1 1 0-2h5V6a1 1 0 0 1 1-1z"/>
-          </svg>
-        </div>
-        <div class="bg-gray-100 p-2 rounded-full">
-          <svg class="w-4 h-4 text-[#2A1A7E]" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM21.41 6.34a1.25 1.25 0 0 0 0-1.77l-2.34-2.34a1.25 1.25 0 0 0-1.77 0l-1.83 1.83 4.11 4.11 1.83-1.83z"/>
-          </svg>
-        </div>
+            <button
+                    class="p-3 rounded-full bg-transparent text-heading border hover:bg-white hover:text-black transition-hover"
+                    :class="isDarkTheme ? (index === 0 ?'border-Primary-dark text-muted' : 'border-Primary-dark text-muted'): (!index === 0 ?'border-Primary' : 'border-Primary-dark')">
+                     <span v-html="AddIcon" />
+                </button>
+           <button
+                    class="p-3 rounded-full bg-transparent text-heading border hover:bg-white hover:text-black transition-hover"
+                    :class="isDarkTheme ? (index === 0 ?'border-Primary-dark text-muted' : 'border-Primary-dark text-muted'): (!index === 0 ?'border-Primary' : 'border-Primary-dark')">
+                    <span v-html="PencilIcon" />
+                </button>
       </div>
     </div>
 
     <!-- Info Section -->
-    <div class="space-y-4">
+    <div class="space-y-4 ml-3">
       <!-- Job Title -->
       <div class="flex items-start gap-3">
         <div class="bg-gray-100 p-2 rounded-full">
-          <svg class="w-4 h-4 text-[#2A1A7E]" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M4 6V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2h1a1 1 0 0 1 1 1v3h-2v-2H4v2H2V7a1 1 0 0 1 1-1h1zm0 5h16v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-9zm4 2v2h8v-2H8z"/>
-          </svg>
+       <span v-html="BriefCaseIcon"/>
+    </div>
+    <div>
+        <p class="text-sm text-gray-400">Job Title</p>
+        <p class="text-[#2A1A7E] text-sm font-semibold">Administrative Assistant</p>
+    </div>
+</div>
+
+<!-- Phone -->
+<div class="flex items-start gap-3">
+    <div class="bg-gray-100 p-2 rounded-full">
+            <span v-html="CallIcon"/>
+            
         </div>
         <div>
-          <p class="text-sm text-gray-400">Job Title</p>
-          <p class="text-[#2A1A7E] font-medium">Administrative Assistant</p>
+            <p class="text-sm text-gray-400">Phone</p>
+            <p class="text-[#2A1A7E] text-sm font-semibold">+11 705 555-1207</p>
         </div>
-      </div>
-
-      <!-- Phone -->
-      <div class="flex items-start gap-3">
+    </div>
+    
+    <!-- Email -->
+    <div class="flex items-start gap-3">
         <div class="bg-gray-100 p-2 rounded-full">
-          <svg class="w-4 h-4 text-[#2A1A7E]" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M6.62 10.79a15.91 15.91 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1-.24 11.72 11.72 0 0 0 3.68.59 1 1 0 0 1 1 1v3.56a1 1 0 0 1-1 1A16 16 0 0 1 3 5a1 1 0 0 1 1-1h3.56a1 1 0 0 1 1 1 11.72 11.72 0 0 0 .59 3.68 1 1 0 0 1-.24 1z"/>
-          </svg>
+            <span v-html=" InboxIcon"/>
+            
         </div>
         <div>
-          <p class="text-sm text-gray-400">Phone</p>
-          <p class="text-[#2A1A7E] font-medium">+11 705 555-1207</p>
+            <p class="text-sm text-gray-400">Email</p>
+            <p class="text-[#2A1A7E] text-sm font-semibold">mbraswell@ominex.com</p>
         </div>
-      </div>
-
-      <!-- Email -->
-      <div class="flex items-start gap-3">
+    </div>
+    
+    <!-- Source -->
+    <div class="flex items-start gap-3">
         <div class="bg-gray-100 p-2 rounded-full">
-          <svg class="w-4 h-4 text-[#2A1A7E]" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M20 4H4a2 2 0 0 0-2 2v1.6l10 6.4 10-6.4V6a2 2 0 0 0-2-2zM2 8.4V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8.4l-10 6.4L2 8.4z"/>
-          </svg>
-        </div>
-        <div>
-          <p class="text-sm text-gray-400">Email</p>
-          <p class="text-[#2A1A7E] font-medium">mbraswell@ominex.com</p>
-        </div>
-      </div>
-
-      <!-- Source -->
-      <div class="flex items-start gap-3">
-        <div class="bg-gray-100 p-2 rounded-full">
-          <svg class="w-4 h-4 text-[#2A1A7E]" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M3.9 12a9 9 0 0 1 15.1-6.36L17 7.65A6.5 6.5 0 0 0 6.35 17l1.01 1.01A9 9 0 0 1 3.9 12zM21 12a9 9 0 0 1-15.1 6.36L7 16.35A6.5 6.5 0 0 0 17.65 7l-1.01-1.01A9 9 0 0 1 21 12z"/>
-          </svg>
+            <span v-html=" RingIcon"/>
+   
         </div>
         <div>
           <p class="text-sm text-gray-400 mb-1">Source</p>
@@ -102,9 +97,27 @@
 
 
 <script>
+import { mapGetters } from 'vuex';
+import { AddIcon, BriefCaseIcon, CallIcon, DollarIcon,InboxIcon, PencilIcon,
+    RingIcon
+ } from '../../assets/icons';
+
 export default {
   name: 'LeadInformationCard',
-  // You can add data properties if you need dynamic content
+  data(){
+    return{
+        DollarIcon,
+        AddIcon,
+        PencilIcon,
+        BriefCaseIcon,
+        CallIcon,
+        InboxIcon,
+        RingIcon
+    }
+  },
+  computed: {
+        ...mapGetters(['isDarkTheme'])
+    },
 }
 </script>
 

@@ -27,7 +27,7 @@
         </div>
       </div>
       <!-- Status Icons with Gradient Background - Updated with SVG icons -->
-      <div class="w-full mt-2">
+      <div class="w-full mt-4">
         <!-- Gradient Background with Positioned Icons -->
         <div class="icon-bg w-full flex items-center justify-between pt-[2px] px-[4px]">
           <div v-for="(status, index) in statuses" :key="index" class="flex flex-col items-center">

@@ -4,15 +4,14 @@
         <div class="flex justify-between items-center mb-4">
             <h2 class="text-[#2D0C8C] font-medium text-[18px]">Work Queue</h2>
             <div class="flex space-x-2">
-                <div
-                    class="p-3 rounded-full bg-transparent text-heading border hover:bg-white hover:text-black transition-hover"
-                    :class="isDarkTheme ? (index === 0 ?'border-Primary-dark text-muted' : 'border-Primary-dark text-muted'): (!index === 0 ?'border-Primary' : 'border-Primary-dark')">
-                    <span v-html=" MessageBoxIcon "></span>
+                <div class="p-3 rounded-full bg-transparent text-heading border hover:bg-white hover:text-black transition-hover"
+                    :class="isDarkTheme ? (index === 0 ? 'border-Primary-dark text-muted' : 'border-Primary-dark text-muted') : (!index === 0 ? 'border-Primary' : 'border-Primary-dark')">
+                    <span v-html="MessageBoxIcon"></span>
                 </div>
 
                 <button
                     class="p-3 rounded-full bg-transparent text-heading border hover:bg-white hover:text-black transition-hover"
-                    :class="isDarkTheme ? (index === 0 ?'border-Primary-dark text-muted' : 'border-Primary-dark text-muted'): (!index === 0 ?'border-Primary' : 'border-Primary-dark')">
+                    :class="isDarkTheme ? (index === 0 ? 'border-Primary-dark text-muted' : 'border-Primary-dark text-muted') : (!index === 0 ? 'border-Primary' : 'border-Primary-dark')">
                     <span v-html="SearchIcon" />
                 </button>
             </div>
@@ -37,15 +36,12 @@
 
             <!-- Dropdown -->
             <div class="relative w-full">
-               <select 
-    v-model="selectedCadence" 
-    @change="filterCards"
-    class="w-full appearance-none px-5 py-2 text-xs text-[#2D0C8C] bg-[#f7f6fb] border border-[#d4cfea] rounded-full font-medium focus:border-[#d4cfea] focus:ring-0 focus:outline-none"
->
-    <option v-for="cadence in cadences" :key="cadence" :value="cadence">
-        {{ cadence }}
-    </option>
-</select>
+                <select v-model="selectedCadence" @change="filterCards"
+                    class="w-full appearance-none px-5 py-2 text-xs text-[#2D0C8C] bg-[#f7f6fb] border border-[#d4cfea] rounded-full font-medium focus:border-[#d4cfea] focus:ring-0 focus:outline-none">
+                    <option v-for="cadence in cadences" :key="cadence" :value="cadence">
+                        {{ cadence }}
+                    </option>
+                </select>
                 <!-- Dropdown Icon -->
                 <div class="absolute inset-y-0 right-4 flex items-center pointer-events-none">
                     <svg class="w-4 h-4 text-[#2D0C8C]" fill="none" stroke="currentColor" stroke-width="2"
@@ -57,7 +53,8 @@
         </div>
 
         <!-- Cards Container with Scroll -->
-        <div class="max-h-[430px] overflow-y-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div
+            class="max-h-[430px] overflow-y-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             <!-- Cards -->
             <div v-for="(card, index) in filteredCards" :key="card.id" :class="[
                 'relative p-4 py-5 mb-3 rounded-2xl shadow transition duration-300 hover:shadow-lg mt-3',
@@ -81,7 +78,7 @@
                     <!-- Top Right Icon -->
                     <button
                         class="p-[10px] rounded-full bg-transparent  border hover:bg-white hover:text-black transition-hover "
-                        :class="isDarkTheme ? (index === 0 ?'border-Primary-dark text-muted' : 'border-Primary-dark text-heading'): (!index === 0 ?'border-Primary' : 'border-Primary-dark')">
+                        :class="isDarkTheme ? (index === 0 ? 'border-Primary-dark text-muted' : 'border-Primary-dark text-heading') : (!index === 0 ? 'border-Primary' : 'border-Primary-dark')">
                         <span v-html="SearchIcon" />
                     </button>
                 </div>
@@ -103,7 +100,7 @@
                         <!-- Bottom Right Icon -->
                         <button
                             class="p-3 rounded-full bg-transparent border hover:bg-white hover:text-black transition-hover"
-                            :class="isDarkTheme ? (index === 0 ?'border-Primary-dark text-muted' : 'border-Primary-dark text-heading'): (!index === 0 ?'border-Primary' : 'border-Primary-dark')">
+                            :class="isDarkTheme ? (index === 0 ? 'border-Primary-dark text-muted' : 'border-Primary-dark text-heading') : (!index === 0 ? 'border-Primary' : 'border-Primary-dark')">
                             <span v-html="ArrowRightIcon" />
                         </button>
                     </div>
