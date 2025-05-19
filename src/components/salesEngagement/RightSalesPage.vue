@@ -26,7 +26,7 @@
           </div>
         </div>
       </div>
-      <!-- Status Icons with Gradient Background - Updated with SVG icons -->
+      <!-- Status Icons with Gradient Background - Updated with SVG icons --> 
       <div class="w-full mt-4">
         <!-- Gradient Background with Positioned Icons -->
         <div class="icon-bg w-full flex items-center justify-between pt-[2px] px-[4px]">
@@ -84,7 +84,7 @@ export default {
 /* Removed the icon-bg style as we're now using a direct gradient */
 .icon-bg {
   height: 50px;
-  background-image: url('../../assets/image.png');
+  background-image: url('../../assets/SalesImageBg.png');
   /* Adjust path if needed */
   background-size: contain;
   background-repeat: no-repeat;

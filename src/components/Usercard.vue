@@ -10,7 +10,6 @@
         :class="isDarkTheme ? '  border-b-2 border-white text-white' : ' border-blue text-primary-light'">7 <span
           class=" text-xl" :class="isDarkTheme ? ' text-[#9992BC]' : 'text-primary-light'"> Leads</span></span>
 
-
       <button
         class="p-3 rounded-full bg-transparent text-heading border hover:bg-white hover:text-black transition-hover"
         :class="isDarkTheme ? 'border-Primary' : 'border-Primary-dark'">
@@ -40,60 +39,67 @@
     <!-- Cards Container -->
     <div class="relative">
       <div class="flex flex-nowrap gap-6 overflow-x-auto pb-4 scrollbar-hide pt-5 pl-2.5">
-        <div v-for="(lead, index) in filteredLeads" :key="index"
-          class="rounded-2xl p-4 relative flex flex-col gap-4 w-[325px] h-[269px] flex-shrink-0 cardhover bg-cover bg-center bg-no-repeat"
-          :class="isDarkTheme ? 'card-darkThemebg' : 'card-lightThemebg'">
-          <div class="absolute top-0 right-2.5 flex gap-2">
-            <button
-              class="flex justify-center items-center p-3 rounded-full bg-transparent text-heading border hover:bg-white hover:text-black transition-hover w-[53px] h-[53px]"
-              :class="isDarkTheme ? 'border-Primary' : 'border-Primary-dark'">
-              <span v-html="ArrowRightIcon" />
-            </button>
-          </div>
+        <template v-if="filteredLeads.length">
+          <div v-for="(lead, index) in filteredLeads" :key="index"
+            class="rounded-2xl p-4 relative flex flex-col gap-4 w-[325px] h-[269px] flex-shrink-0 cardhover bg-cover bg-center bg-no-repeat"
+            :class="isDarkTheme ? 'card-darkThemebg' : 'card-lightThemebg'">
+            <div class="absolute top-0 right-2.5 flex gap-2">
+              <button
+                class="flex justify-center items-center p-3 rounded-full bg-transparent text-heading border hover:bg-white hover:text-black transition-hover w-[53px] h-[53px]"
+                :class="isDarkTheme ? 'border-Primary' : 'border-Primary-dark'">
+                <span v-html="ArrowRightIcon" />
+              </button>
+            </div>
 
-          <img :src="lead.avatar" alt="Avatar" class="w-12 h-12 rounded-full border border-gray-400" />
+            <img :src="lead.avatar" alt="Avatar" class="w-12 h-12 rounded-full border border-gray-400" />
 
-          <div>
-            <h3 class="text-[26px] font-medium mb-1" :class="isDarkTheme ? 'text-white' : 'text-primary-light'">
-              {{ lead.name }}
-            </h3>
-            <p class="text-[16px] below-text">{{ lead.role }}</p>
-          </div>
+            <div>
+              <h3 class="text-[26px] font-medium mb-1" :class="isDarkTheme ? 'text-white' : 'text-primary-light'">
+                {{ lead.name }}
+              </h3>
+              <p class="text-[16px] below-text">{{ lead.role }}</p>
+            </div>
 
-          <div class="py-4 rounded-lg w-full">
-            <div class="flex justify-between items-start gap-4">
-              <!-- Source Section -->
-              <div class="flex flex-col gap-2">
-                <span class="text-[12px]" :class="isDarkTheme ? 'text-muted' : 'below-text'">Source</span>
-                <div class="flex gap-2">
-                  <button v-for="(source, i) in lead.sources" :key="i" class="px-2 py-1 rounded-full text-[12px]"
-                    :class="isDarkTheme
-                      ? 'text-white bg-secondary'
-                      : 'btn-text bg-secondary-dark'
-                      ">
-                    {{ source }}
-                  </button>
+            <div class="py-4 rounded-lg w-full">
+              <div class="flex justify-between items-start gap-4">
+                <!-- Source Section -->
+                <div class="flex flex-col gap-2">
+                  <span class="text-[12px]" :class="isDarkTheme ? 'text-muted' : 'below-text'">Source</span>
+                  <div class="flex gap-2">
+                    <button v-for="(source, i) in lead.sources" :key="i" class="px-2 py-1 rounded-full text-[12px]"
+                      :class="isDarkTheme
+                        ? 'text-white bg-secondary'
+                        : 'btn-text bg-secondary-dark'
+                        ">
+                      {{ source }}
+                    </button>
+                  </div>
                 </div>
-              </div>
 
-              <!-- Hot Prospect Section -->
-              <div class="flex flex-col gap-2">
-                <span class="text-[12px]" :class="isDarkTheme ? 'text-muted' : 'below-text'">
-                  <span v-if="lead.tag === 'Hot Prospect'">🔥</span>
-                  {{ lead.tag }}
-                </span>
-                <div class="flex items-center space-x-1 rounded-full px-2 py-1"
-                  :class="!isDarkTheme ? 'border-Secondary-light' : ' border-Secondary'">
-                  <span class="w-3 h-3 bg-[#FA9A90] rounded-full"></span>
-                  <span class="w-3 h-3 bg-[#FEA269] rounded-full"></span>
-                  <span class="w-3 h-3 bg-[#FDDB67] rounded-full"></span>
-                  <span class="w-3 h-3 bg-[#A8FB66] rounded-full"></span>
-                  <span class="w-3 h-3 bg-[#363639] rounded-full"></span>
+                <!-- Hot Prospect Section -->
+                <div class="flex flex-col gap-2">
+                  <span class="text-[12px]" :class="isDarkTheme ? 'text-muted' : 'below-text'">
+                    <span v-if="lead.tag === 'Hot Prospect'">🔥</span>
+                    {{ lead.tag }}
+                  </span>
+                  <div class="flex items-center space-x-1 rounded-full px-2 py-1"
+                    :class="!isDarkTheme ? 'border-Secondary-light' : ' border-Secondary'">
+                    <span class="w-3 h-3 bg-[#FA9A90] rounded-full"></span>
+                    <span class="w-3 h-3 bg-[#FEA269] rounded-full"></span>
+                    <span class="w-3 h-3 bg-[#FDDB67] rounded-full"></span>
+                    <span class="w-3 h-3 bg-[#A8FB66] rounded-full"></span>
+                    <span class="w-3 h-3 bg-[#363639] rounded-full"></span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </template>
+        <template v-else>
+          <div class="text-lg px-4 py-8 text-center " :class="isDarkTheme? 'text-primary-dark' : 'text-primary-light'">
+            Leider konnten wir kein Element mit diesen Filtern finden
+          </div>
+        </template>
       </div>
     </div>
   </div>

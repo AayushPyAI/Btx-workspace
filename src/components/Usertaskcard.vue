@@ -13,13 +13,11 @@
         class="p-3 rounded-full bg-transparent border border-Primary text-heading hover:bg-white hover:text-black transition-hover"
         :class="isDarkTheme ? 'border-Primary' : 'border-Primary-dark'">
         <span v-html="SearchIcon" />
-
       </button>
       <button
         class="p-3 rounded-full bg-transparent border border-Primary text-heading hover:bg-white hover:text-black transition-hover"
         :class="isDarkTheme ? 'border-Primary' : 'border-Primary-dark'">
         <span v-html="FilterIcon" />
-
       </button>
 
       <div class="flex items-center gap-3 flex-nowrap overflow-x-auto scrollbar-hide">
@@ -36,7 +34,7 @@
 
     <!-- Cards Container -->
     <div class="relative">
-      <div class="flex flex-nowrap gap-6 overflow-x-auto pb-4 scrollbar-hide pl-2.5">
+      <div v-if="filteredTasks.length > 0" class="flex flex-nowrap gap-6 overflow-x-auto pb-4 scrollbar-hide pl-2.5">
         <div v-for="(task, index) in filteredTasks" :key="index"
           class="rounded-2xl p-4 relative  flex flex-col gap-4 min-w-[385px] min-h-[280px] flex-shrink-0 cardhover bg-contain bg-center bg-no-repeat "
           :class="isDarkTheme
@@ -85,7 +83,6 @@
                   <!-- Left Icon -->
                   <div class="flex items-center justify-center w-12 h-12 rounded-full border bg-opacity-10 mr-4">
                     <span v-html="GoogleMeetIcon" />
-
                   </div>
 
                   <!-- Right Content -->
@@ -175,13 +172,14 @@
           </div>
         </div>
       </div>
+      <div v-else class="  px-4 py-8 ">
+        <p class="text-lg" :class="isDarkTheme ? 'text-primary' : 'text-primary-light'">Leider konnten wir kein Element mit diesen Filtern finden</p>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-
-
 import { mapGetters } from 'vuex'
 import { SearchIcon, FilterIcon, OfferIcon, NotificationIcon, ArrowRightIcon, GoogleMeetIcon, VideoIcon, EmailIcon, ChevronDownIcon } from '../assets/icons.js';
 
