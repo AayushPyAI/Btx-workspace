@@ -25,7 +25,7 @@
         </div>
       </div>
     </div>
-    <div v-else>
+    <div v-if="showMainPage">
       <Navbar />
       <div class="flex pt-16">
         <div class="w-16 fixed top-16">
@@ -72,7 +72,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['isDarkTheme', 'showModel', 'showSalesPage']),
+    ...mapGetters(['isDarkTheme', 'showModel', 'showSalesPage', 'showMainPage']),
   },
   methods: {
     ...mapActions(["closeModal"]),

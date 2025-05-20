@@ -46,7 +46,7 @@
                     </div>
                    <button
                     class="p-4 rounded-full bg-transparent text-heading border hover:bg-white hover:text-black transition-hover"
-                    :class="isDarkTheme ? (index === 0 ? 'border-Primary-dark text-muted' : 'border-Primary-dark text-muted') : (!index === 0 ? 'border-Primary' : 'border-Primary-dark')">
+                    :class="isDarkTheme ? (index === 0 ? 'border-Primary-dark text-muted' : 'border-Primary-dark text-muted') : (!index === 0 ? 'border-Primary' : 'border-Primary-dark' )">
                     <span v-html="ArrowDownIcon" />
                 </button>
                 </div>
@@ -55,9 +55,7 @@
                 <div class="flex justify-between items-center mt-6">
                     <div class="flex items-center space-x-2">
                         <div class="bg-white rounded-full p-2">
-                            <svg class="w-5 h-5 text-[#2E1F79]" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M4 4h16v2H4zm0 4h16v2H4zm0 4h10v2H4zm0 4h16v2H4z" />
-                            </svg>
+                          <span v-html="TypeIcon"></span>
                         </div>
                         <div>
                             <p class="text-xs text-gray-500">Type</p>
@@ -67,11 +65,7 @@
 
                     <div class="flex items-center space-x-2">
                         <div class="bg-white rounded-full p-2">
-                            <svg class="w-5 h-5 text-[#2E1F79]" fill="none" stroke="currentColor" stroke-width="2"
-                                viewBox="0 0 24 24">
-                                <path d="M8 7V3m8 4V3m-9 8h10m-13 7h16" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
+                           <span v-html="CalendarIcon"></span>
                         </div>
                         <div>
                             <p class="text-xs text-gray-500">Start Date</p>
@@ -97,7 +91,9 @@ import {
     ArrowDownIcon,
     DollarIcon,
     PencilIcon,
-    TwitterIcon
+    TwitterIcon,
+    CalendarIcon,
+    TypeIcon
 } from '../../assets/icons';
 
 export default {
@@ -108,6 +104,8 @@ export default {
             AddIcon,
             PencilIcon,
             ArrowDownIcon,
+            CalendarIcon,
+            TypeIcon,
             cards: [
                 {
                     icon: AdwordIcon,
@@ -115,11 +113,11 @@ export default {
                     status: 'Connected',
                     type: 'Web Marketing',
                     date: '18.02.2025',
-                    bgClass: 'bg-green-400 hover:bg-white hover:text-black transition-hover'
+                    bgClass: 'bg-green-400 hover:text-black transition-hover'
                 },
                 {
                     icon: TwitterIcon,
-                    title: 'X-twitter Social Listening',
+                    title: 'X-twitter Listening',
                     status: 'Engaged',
                     type: 'Social Media',
                     date: '06.03.2025',

@@ -5,6 +5,7 @@ const store = createStore({
     isDarkTheme: false,
     showModel: false,
     showSalesPage: false,
+    showMainPage: true,
   },
   mutations: {
     toggleTheme(state) {
@@ -16,11 +17,15 @@ const store = createStore({
     SHOW_SALES_PAGE(state, payload) {
       state.showSalesPage = payload;
     },
+    SHOW_MAIN_PAGE(state, payload) {
+      state.showMainPage = payload;
+    },
   },
   getters: {
     isDarkTheme: (state) => state.isDarkTheme,
     showModel: (state) => state.showModel,
     showSalesPage: (state) => state.showSalesPage,
+    showMainPage: (state) => state.showMainPage,
   },
   actions: {
     openModal({ commit }) {
@@ -31,6 +36,11 @@ const store = createStore({
     },
     OPENSALESPAGE({ commit }) {
       commit("SHOW_SALES_PAGE", true);
+      commit("SHOW_MAIN_PAGE", false);
+    },
+    OPENMAINPAGE({ commit }) {
+      commit("SHOW_MAIN_PAGE", true);
+      commit("SHOW_SALES_PAGE", false);
     },
   },
 });
