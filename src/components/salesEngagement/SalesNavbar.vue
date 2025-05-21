@@ -3,7 +3,7 @@
     :class="isDarkTheme ? 'bg-primary' : 'bg-white'">
     <div class="flex items-center">
       <span v-html="isDarkTheme ? logoDark : logoLight"></span>
-    <button @click="OPENMAINPAGE"
+    <button @click="backToHome"
       class="rounded-full w-10 h-10 flex items-center justify-center hover:bg-white bg-transparent ml-3 cursor-pointer"
       :class="isDarkTheme ? 'hover:bg-white border-Primary' : 'border-Primary-dark'">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary"  fill="none" viewBox="0 0 24 24"
@@ -93,7 +93,10 @@ export default {
   },
   methods: {
     ...mapMutations(['toggleTheme']),
-     ...mapActions(["OPENMAINPAGE"]),
+    //  ...mapActions(["OPENMAINPAGE"]),
+     backToHome() {
+      this.$router.push('/')
+    }
   }
 };
 
