@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center  w-16 py-4 space-y-6 pt-7">
     <!-- Back button -->
-    <button @click="OPENSALESPAGE"
+    <button @click="goToSalesPage"
       class="rounded-full w-10 h-10 flex items-center justify-center hover:bg-white bg-transparent  cursor-pointer"
       :class="isDarkTheme ? 'hover:bg-white border-Primary' : 'border-Primary-dark'">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-secondary"  fill="none" viewBox="0 0 24 24"
@@ -68,7 +68,10 @@ export default {
     ...mapGetters(["isDarkTheme"]),
   },
   methods: {
-    ...mapActions(["OPENSALESPAGE"]),
+    // ...mapActions(["OPENSALESPAGE"]),
+     goToSalesPage() {
+      this.$router.push('/salesEngagement')
+    }
   },
 }
 </script>
