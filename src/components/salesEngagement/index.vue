@@ -4,14 +4,14 @@
     <TopBar />
     <div class="flex h-full w-full bg-gray-50">
       <!-- Left Container -->
-      <div class="w-[28%] min-w-[310px] border-gray-200 bg-white overflow-y-auto">
+      <div class="w-[28%] min-w-[310px] border-gray-200   overflow-y-auto" :class="isDarkTheme ? 'bg-primary text-primary-dark' : 'bg-primary-dark text-primary-light'">
         <SalesFiltercard />
       </div>
 
       <!-- Right Container -->
-      <div class="w-[72%] bg-[#F8F6FC] overflow-y-auto">
+      <div class="w-[72%]  overflow-y-auto" :class="isDarkTheme ? 'bg-primary text-primary-dark' : 'bg-primary-dark text-primary-light'">
         <RightSalesPage />
-        <div class="flex gap-3 w-full">
+        <div class="flex gap-3 w-full" :class="isDarkTheme ? 'bg-primary text-primary-dark' : 'bg-primary-dark text-primary-light'">
           <LeadInfoCard />
           <CampaignCard />
         </div>
@@ -31,6 +31,7 @@ import RightSalesPage from '../salesEngagement/RightSalesPage.vue'
 import LeadInfoCard from '../salesEngagement/LeadInfoCard.vue'
 import CampaignCard from '../salesEngagement/CampaignCard.vue'
 import Scoring from '../salesEngagement/Scoring.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'SalesPage',
@@ -45,7 +46,10 @@ export default {
   },
   data() {
     return {
+
     }
-  }
+  },      computed: {
+    ...mapGetters(['isDarkTheme']),
+  },
 }
 </script>

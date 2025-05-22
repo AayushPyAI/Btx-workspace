@@ -42,23 +42,19 @@
         </span>
 
       </button>
-      <div class="relative  p-3 rounded-full m-0 hover:bg-white bg-transparent  cursor-pointer border-SecondaryOne"
-        :class="isDarkTheme ? 'bg-secondary-dark text-white' : ' bg-white'">
-        <span v-html="AddIcon"></span>
+      <div class="relative  p-3 rounded-full m-0 hover:bg-white bg-transparent  cursor-pointer border-SecondaryOne">
+        <span v-html="getAddIcon(isDarkTheme)"></span>
 
       </div>
-      <div class="relative  p-3 rounded-full m-0 hover:bg-white bg-transparent  cursor-pointer border-SecondaryOne"
-        :class="isDarkTheme ? 'bg-secondary-dark text-white' : ' bg-white'">
-        <span v-html="QuestioIcon"></span>
+      <div class="relative  p-3 rounded-full m-0 hover:bg-white bg-transparent  cursor-pointer border-SecondaryOne">
+        <span v-html="getQuestionIcon(isDarkTheme)"></span>
 
       </div>
-      <div class="relative  p-3 rounded-full m-0 hover:bg-white bg-transparent  cursor-pointer border-SecondaryOne"
-        :class="isDarkTheme ? 'bg-secondary-dark text-white' : ' bg-white'">
-        <span v-html="SettingIcon"></span>
+      <div class="relative  p-3 rounded-full m-0 hover:bg-white bg-transparent  cursor-pointer border-SecondaryOne">
+        <span v-html="getSettingsIcon(isDarkTheme)"></span>
 
       </div>
-      <div class="relative  p-3 rounded-full m-0 hover:bg-white bg-transparent  cursor-pointer border-SecondaryOne"
-        :class="isDarkTheme ? 'bg-secondary-dark text-white' : ' bg-white'">
+      <div class="relative  p-3 rounded-full m-0 hover:bg-white bg-transparent  cursor-pointer border-SecondaryOne">
         <span v-html="Notification"></span>
 
       </div>
@@ -72,7 +68,7 @@
 
 <script>
 import { mapGetters, mapMutations, mapActions } from 'vuex';
-import { logoLight, logoDark, Notification, AddIcon, QuestioIcon, SettingIcon, searchNavIcon } from '../../assets/icons';
+import { logoLight, logoDark, Notification, AddIcon, QuestioIcon, SettingIcon, searchNavIcon, getAddIcon,getQuestionIcon,getSettingsIcon } from '../../assets/icons';
 export default {
   name: 'Navbar',
   data() {
@@ -83,7 +79,10 @@ export default {
       AddIcon,
       QuestioIcon,
       SettingIcon,
-      searchNavIcon
+      searchNavIcon,
+      getAddIcon,
+      getQuestionIcon,
+      getSettingsIcon
     };
 
   },

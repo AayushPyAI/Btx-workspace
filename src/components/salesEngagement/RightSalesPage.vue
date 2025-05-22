@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto bg-[#F8F6FC] overflow-hidden">
+  <div class="mx-auto overflow-hidden" :class="isDarkTheme ? 'bg-primary text-primary-dark' : 'bg-primary-dark text-primary-light'">
     <div class="p-6">
       <div class="flex items-center space-x-4">
         <div class="flex items-center space-x-2">
@@ -7,7 +7,7 @@
             class="w-8 h-8 rounded-full object-cover" />
           <div>
             <p class="text-xs text-gray-400 leading-none">Contact</p>
-            <p class="text-sm font-medium text-[#2d1c57]">Miguel Braswell</p>
+            <p class="text-sm font-medium " :class="isDarkTheme ? 'text-white' : 'text-[#2d1c57]'">Miguel Braswell</p>
           </div>
         </div>
 
@@ -22,7 +22,7 @@
           </div>
           <div>
             <p class="text-xs text-gray-400 leading-none">Company</p>
-            <p class="text-sm font-medium text-[#2d1c57]">Ominey Canada Ltd</p>
+            <p class="text-sm font-medium "  :class="isDarkTheme ? 'text-white' : 'text-[#2d1c57]'">Ominey Canada Ltd</p>
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@
         <!-- Labels container - positioned absolutely below the icon bg -->
         <div class="flex justify-between px-[4px] -mt-1">
           <div v-for="(status, index) in statuses" :key="index" class="w-10 text-center">
-            <span class="text-xs font-medium text-[#2d1c57]">{{ status.label }}</span>
+            <span class="text-xs font-medium ">{{ status.label }}</span>
           </div>
         </div>
       </div>

@@ -1,25 +1,25 @@
 <template>
-  <div class="w-[360px] p-4 rounded-2xl shadow-md bg-white border border-gray-200">
+  <div class="w-[360px] p-4 rounded-2xl shadow-md   border-gray-200" :class="isDarkTheme ? 'bg-[#25203C] text-primary-dark' : 'bg-white text-primary-light'">
     <!-- Header -->
     <div class="flex items-center justify-between mb-4">
       <div class="flex items-center gap-2">
          <button
-                    class="p-3 rounded-full bg-blue text-white border hover:bg-white hover:text-black transition-hover"
+                    class="p-3 rounded-full bg-blue text-white border hover:bg-white  transition-hover"
                     :class="isDarkTheme ? (index === 0 ?'border-Primary-dark text-muted' : 'border-Primary-dark text-muted'): (!index === 0 ?'border-Primary' : 'border-Primary-dark')">
                     <span v-html="DollarIcon" />
                 </button>
-        <h2 class="text-[#2A1A7E] font-semibold">Lead Information</h2>
+        <h2 class=" font-semibold">Lead Information</h2>
       </div>
       <div class="flex gap-2">
             <button
-                    class="p-3 rounded-full bg-transparent text-heading border hover:bg-white hover:text-black transition-hover"
-                    :class="isDarkTheme ? (index === 0 ?'border-Primary-dark text-muted' : 'border-Primary-dark text-muted'): (!index === 0 ?'border-Primary' : 'border-Primary-dark')">
-                     <span v-html="AddIcon" />
+                    class="p-3 bg-transparent hover:bg-white border-Primary-dark rounded-full"
+                    :class="isDarkTheme ? (index === 0 ?'border-primary text-muted' : 'border-Primary-dark text-muted'): (!index === 0 ?'border-Primary' : 'border-Primary-dark')">
+                     <span v-html="getAddIcon(isDarkTheme)" />
                 </button>
            <button
-                    class="p-3 rounded-full bg-transparent text-heading border hover:bg-white hover:text-black transition-hover"
+                    class="p-3 bg-transparent hover:bg-white border-Primary-dark rounded-full"
                     :class="isDarkTheme ? (index === 0 ?'border-Primary-dark text-muted' : 'border-Primary-dark text-muted'): (!index === 0 ?'border-Primary' : 'border-Primary-dark')">
-                    <span v-html="PencilIcon" />
+                    <span v-html="getPenIcon(isDarkTheme)" />
                 </button>
       </div>
     </div>
@@ -33,7 +33,7 @@
     </div>
     <div>
         <p class="text-sm text-gray-400">Job Title</p>
-        <p class="text-[#2A1A7E] text-sm font-semibold">Administrative Assistant</p>
+        <p class=" text-sm font-semibold">Administrative Assistant</p>
     </div>
 </div>
 
@@ -45,7 +45,7 @@
         </div>
         <div>
             <p class="text-sm text-gray-400">Phone</p>
-            <p class="text-[#2A1A7E] text-sm font-semibold">+11 705 555-1207</p>
+            <p class=" text-sm font-semibold">+11 705 555-1207</p>
         </div>
     </div>
     
@@ -57,7 +57,7 @@
         </div>
         <div>
             <p class="text-sm text-gray-400">Email</p>
-            <p class="text-[#2A1A7E] text-sm font-semibold">mbraswell@ominex.com</p>
+            <p class="text-sm font-semibold">mbraswell@ominex.com</p>
         </div>
     </div>
     
@@ -102,6 +102,8 @@ import { AddIcon, BriefCaseIcon, CallIcon, DollarIcon,InboxIcon, PencilIcon,
     RingIcon
  } from '../../assets/icons';
 
+import { getAddIcon,getPenIcon } from '../../assets/icons';
+
 export default {
   name: 'LeadInformationCard',
   data(){
@@ -112,7 +114,9 @@ export default {
         BriefCaseIcon,
         CallIcon,
         InboxIcon,
-        RingIcon
+        RingIcon,
+        getAddIcon,
+        getPenIcon
     }
   },
   computed: {
