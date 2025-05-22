@@ -1,16 +1,16 @@
 <template>
-    <div class="p-4 w-full bg-[#F8F6FC]">
+    <div class="p-4 w-full " :class="isDarkTheme ? 'bg-primary text-primary-dark' : 'bg-primary-dark text-primary-light'">
         <!-- Header -->
         <div class="flex justify-between items-center mb-4">
-            <h2 class="text-[#2D0C8C] font-medium text-[18px]">Work Queue</h2>
-            <div class="flex space-x-2">
-                <div class="p-3 rounded-full bg-transparent text-heading border hover:bg-white hover:text-black transition-hover"
+            <h2 class=" font-medium text-[18px]">Work Queue</h2>
+            <div class="flex space-x-3">
+                <div class="p-3 rounded-full  text-heading border bg-transparent hover:bg-white  hover:text-black transition-hover"
                     :class="isDarkTheme ? (index === 0 ? 'border-Primary-dark text-muted' : 'border-Primary-dark text-muted') : (!index === 0 ? 'border-Primary' : 'border-Primary-dark')">
-                    <span v-html="MessageBoxIcon"></span>
+                    <span v-html="getMessageBoxIcon(isDarkTheme)"></span>
                 </div>
 
                 <button
-                    class="p-3 rounded-full bg-transparent text-heading border hover:bg-white hover:text-black transition-hover"
+                    class="p-3 px-3.5 rounded-full bg-transparent text-heading border hover:bg-white hover:text-black transition-hover "
                     :class="isDarkTheme ? (index === 0 ? 'border-Primary-dark text-muted' : 'border-Primary-dark text-muted') : (!index === 0 ? 'border-Primary' : 'border-Primary-dark')">
                     <span v-html="SearchIcon" />
                 </button>
@@ -18,18 +18,19 @@
         </div>
 
         <!-- Tabs -->
-        <div class=" bg-[#f7f6fb]">
+        <div :class="isDarkTheme ? 'bg-primary text-primary-dark' : 'bg-primary-dark text-primary-light'">
             <!-- Top Toggle Buttons -->
             <div class="flex space-x-3 mb-4">
-                <button class="w-[120px] h-[36px] bg-[#2D0C8C] text-white text-xs rounded-full font-medium truncate">
+                <button class="w-[120px] h-[36px]  text-white text-xs rounded-full font-medium truncate" :class="isDarkTheme ? 'bg-white text-primary-light' : 'bg-[#2D0C8C]  text-primary'">
                     Cadences
                 </button>
                 <button
-                    class="w-[120px] h-[36px] bg-[#f7f6fb] text-[#2D0C8C] text-xs border border-[#d4cfea] rounded-full font-medium truncate">
+                    class="w-[120px] h-[36px] hover:bg-white hover:text-[#2D0C8C] text-xs border border-[#d4cfea] rounded-full font-medium truncate cursor-pointer"
+                    >
                     My Feed
                 </button>
                 <button
-                    class="w-[120px] h-[36px] bg-[#f7f6fb] text-[#2D0C8C] text-xs border border-[#d4cfea] rounded-full font-medium truncate">
+                    class="w-[120px] h-[36px] hover:bg-white hover:text-[#2D0C8C] text-xs border border-[#d4cfea] rounded-full font-medium truncate cursor-pointer">
                     My List
                 </button>
             </div>
@@ -58,7 +59,12 @@
             <!-- Cards -->
             <div v-for="(card, index) in filteredCards" :key="card.id" :class="[
                 'relative p-4 py-5 mb-3 rounded-2xl shadow transition duration-300 hover:shadow-lg mt-3',
-                index === 0 ? 'bg-[#1E319D] text-white' : 'bg-white text-[#2D0C8C]'
+          
+            //    index === 0 ? 'bg-[#1E319D] text-white':(
+            //     isDarkTheme ? 'bg-[#25203c] text-white' : 'bg-white text-[#2D0C8C]'),
+
+                index==0?(isDarkTheme ? 'bg-white text-black' : 'bg-[#1E319D] text-white') : (isDarkTheme ? 'bg-[#25203c] text-white' : 'bg-white text-[#2D0C8C]'),
+        
             ]">
                 <!-- Top Row -->
                 <div class="flex items-start justify-between">
@@ -66,10 +72,14 @@
                     <div class="flex items-center">
                         <img :src="card.image" alt="avatar" class="w-10 h-10 rounded-full mr-3" />
                         <div>
-                            <div :class="['text-sm font-semibold', index === 0 ? 'text-white' : 'text-[#2D0C8C]']">
+                            <div :class="['text-sm font-semibold',
+                                 index==0?(isDarkTheme ? ' text-black' : ' text-white') : (isDarkTheme ? 'text-white' : 'text-[#2D0C8C]'),
+                            ]"
+                            
+                            >
                                 {{ card.name }}
                             </div>
-                            <div :class="['text-xs mt-0.5', index === 0 ? 'text-white opacity-80' : 'text-gray-500']">
+                            <div :class="['text-xs mt-0.5' , index==0?(isDarkTheme ? ' text-black' : ' text-white') : (isDarkTheme ? 'text-white opacity-80' : 'text-gray-500')]">
                                 {{ card.role }}
                             </div>
                         </div>
@@ -86,8 +96,11 @@
                 <!-- Bottom Row -->
                 <div class="flex items-center justify-between mt-4">
                     <div class="flex gap-2">
-                        <span class="px-3 py-1 text-xs font-medium rounded-full"
-                            :class="index === 0 ? 'bg-white text-[#2D0C8C]' : 'bg-[#F1EFFB] text-[#2D0C8C]'">
+                        <span class="px-3 py-1 text-xs font-medium rounded-full text-white"
+                            :class="
+                            // index === 0 ? 'bg-white text-[#2D0C8C]' : 'bg-[#F1EFFB] text-[#2D0C8C]',
+                            index==0?(isDarkTheme ? ' text-black bg-[#163B9F]   ' : '  bg-[#FFFFFF2E]') : (isDarkTheme ? 'text-white opacity-80' : 'text-gray-500')
+                            ">
                             {{ card.status || '12 Hours Overdue' }}
                         </span>
                         <span class="w-6 h-6 text-xs font-semibold rounded-full flex items-center justify-center mr-2"
@@ -112,7 +125,7 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex';
-import { MessageBoxIcon, SearchIcon, ArrowRightIcon } from '../../assets/icons';
+import { MessageBoxIcon, SearchIcon, ArrowRightIcon,getMessageBoxIcon} from '../../assets/icons';
 export default {
     name: 'WorkQueue',
     data() {
@@ -122,6 +135,7 @@ export default {
             MessageBoxIcon,
             SearchIcon,
             ArrowRightIcon,
+            getMessageBoxIcon,
             cards: [
                 {
                     id: 1,
