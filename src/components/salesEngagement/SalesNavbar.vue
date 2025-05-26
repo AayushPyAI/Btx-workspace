@@ -39,7 +39,7 @@
           </svg>
         </span>
       </button>
-      <div class="relative  p-3 rounded-full m-0 hover:bg-white bg-transparent  cursor-pointer border-SecondaryOne">
+      <div class="relative flex justify-center items-center w-[45px] h-[45px] rounded-full m-0 hover:bg-white bg-transparent  cursor-pointer border-SecondaryOne">
         <span v-html="getAddIcon(isDarkTheme)"></span>
 
       </div>
@@ -52,7 +52,7 @@
 
       </div>
       <div class=" p-2 rounded-full hover:bg-white bg-transparent  cursor-pointer border-SecondaryOne"
-        :class="isDarkTheme ? 'bg-secondary-dark text-white' : ' bg-white'">
+         :class="isDarkTheme ? 'border-Primary' : ' border-Primary-dark'">
         <img src="../../assets/avatar.png" alt="Avatar" class="w-7 h-7 rounded-full" />
       </div>
     </div>
