@@ -55,7 +55,7 @@
 
         <!-- Cards Container with Scroll -->
         <div
-            class="max-h-[730px] overflow-y-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            class="max-h-[730px] overflow-y-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden cursor-pointer">
             <!-- Cards -->
             <div v-for="(card, index) in filteredCards" :key="card.id" class="mx-4" :class="[
                 'relative p-4 py-5 mb-3 rounded-2xl shadow transition duration-300 hover:shadow-lg mt-3 z-50 hover:scale-105',
