@@ -4,19 +4,35 @@
     <div class="flex justify-between items-center mb-4">
       <div class="flex items-center gap-2">
         <button
-          class="p-3 rounded-full bg-blue text-white border hover:bg-white hover:text-black transition-hover"
+          class="p-3 rounded-full bg-blue text-white border hover:bg-white  transition-hover"
         >
           <span v-html="DollarIcon"></span>
         </button>
         <h2 class="font-semibold" :class="isDarkTheme ? 'text-primary' : 'text-indigo-900'">Campaign History</h2>
       </div>
       <div class="flex gap-2">
-        <button class="p-3 bg-transparent hover:bg-white border-Primary-dark rounded-full">
-          <span v-html="getAddIcon(isDarkTheme)"></span>
-        </button>
-        <button class="p-3 bg-transparent hover:bg-white border-Primary-dark rounded-full">
-          <span v-html="getPenIcon(isDarkTheme)"></span>
-        </button>
+      <button
+
+        class="h-11 w-11  bg-transparent hover:bg-white  border-Primary-dark rounded-full"
+                    :class="isDarkTheme ? (index === 0 ?'border-primary text-muted' : 'border-Primary-dark text-muted'): (!index === 0 ?'border-Primary' : 'border-Primary-dark')"
+    @mouseenter="hover = true"
+    @mouseleave="hover = false"
+  >
+    <v-icon
+      name="co-plus"
+      scale="1.4"
+      :color="isDarkTheme && hover ? 'black' : undefined"
+    ></v-icon>
+  </button>
+
+    <button class="h-11 w-11  bg-transparent hover:bg-white  border-Primary-dark rounded-full"
+                    :class="isDarkTheme ? (index === 0 ?'border-primary text-muted' : 'border-Primary-dark text-muted'): (!index === 0 ?'border-Primary' : 'border-Primary-dark')"
+    @mouseenter="hover2 = true"
+    @mouseleave="hover2 = false"
+  >
+    <v-icon name="co-pencil" scale="1.3" :color="isDarkTheme && hover2 ? 'black' : undefined"></v-icon>
+  </button>
+
       </div>
     </div>
 
@@ -42,10 +58,13 @@
             </div>
           </div>
           <button
-            class="p-3.75 py-4 bg-transparent hover:bg-white border-Primary-dark rounded-full"
+            class="h-10 w-10 bg-transparent hover:bg-white border-Primary-dark rounded-full flex items-center justify-center cursor-pointer"
+            @mouseenter="hover3 = true"
+            @mouseleave="hover3 = false"
             
           >
-            <span v-html="getDropdownIcon(isDarkTheme)"></span>
+
+            <v-icon name="la-angle-down-solid" scale=".6" :color="isDarkTheme ? (!hover3? 'white':'black') : '#C0A6B'"  ></v-icon>
           </button>
         </div>
 
@@ -107,6 +126,9 @@ export default {
       ArrowDownIcon,
       CalendarIcon,
       TypeIcon,
+      hover:false,
+      hover2:false,
+      hover3:false,
       getAddIcon,
       getPenIcon,
       getDropdownIcon,

@@ -7,6 +7,8 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import { OhVueIcon, addIcons } from 'oh-vue-icons';
+
 import './style.css'
 export default {
   mounted() {

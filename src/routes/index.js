@@ -2,10 +2,12 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import salesPage from '../components/salesEngagement/index.vue'
 import HomePage from '../components/Home.vue'
+import projectsPage from '../components/project/index.vue'
 
 const routes = [
   { path: '/', name: 'HomePage', component: HomePage },
   { path: '/salesEngagement', name: 'salesEngagement', component: salesPage },
+  {path:'/project',name:'project',component:projectsPage},
 ]
 
 const router = createRouter({
@@ -13,4 +15,4 @@ const router = createRouter({
   routes
 })
 
-export default router
+export default router;
