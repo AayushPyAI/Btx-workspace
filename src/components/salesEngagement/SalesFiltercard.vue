@@ -1,7 +1,7 @@
 <template>
-    <div class="p-4 w-full " :class="isDarkTheme ? 'bg-primary text-primary-dark' : 'bg-primary-dark text-primary-light'">
+    <div class=" w-full " :class="isDarkTheme ? 'bg-primary text-primary-dark' : 'bg-primary-dark text-primary-light'">
         <!-- Header -->
-        <div class="flex justify-between items-center mb-4">
+        <div class="flex justify-between items-center m-4">
             <h2 class=" font-medium text-[18px]">Work Queue</h2>
             <div class="flex space-x-3">
                 <div class="p-3 rounded-full  text-heading border bg-transparent hover:bg-white  hover:text-black transition-hover"
@@ -18,7 +18,7 @@
         </div>
 
         <!-- Tabs -->
-        <div :class="isDarkTheme ? 'bg-primary text-primary-dark' : 'bg-primary-dark text-primary-light'">
+        <div class="m-4" :class="isDarkTheme ? 'bg-primary text-primary-dark' : 'bg-primary-dark text-primary-light'">
             <!-- Top Toggle Buttons -->
             <div class="flex space-x-3 mb-4">
                 <button class="w-[120px] h-[36px]  text-white text-xs rounded-full font-medium truncate" :class="isDarkTheme ? 'bg-white text-primary-light' : 'bg-[#2D0C8C]  text-primary'">
@@ -57,8 +57,8 @@
         <div
             class="max-h-[730px] overflow-y-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             <!-- Cards -->
-            <div v-for="(card, index) in filteredCards" :key="card.id" :class="[
-                'relative p-4 py-5 mb-3 rounded-2xl shadow transition duration-300 hover:shadow-lg mt-3',
+            <div v-for="(card, index) in filteredCards" :key="card.id" class="mx-4" :class="[
+                'relative p-4 py-5 mb-3 rounded-2xl shadow transition duration-300 hover:shadow-lg mt-3 z-50 hover:scale-105',
           
             //    index === 0 ? 'bg-[#1E319D] text-white':(
             //     isDarkTheme ? 'bg-[#25203c] text-white' : 'bg-white text-[#2D0C8C]'),
@@ -96,10 +96,10 @@
                 <!-- Bottom Row -->
                 <div class="flex items-center justify-between mt-4">
                     <div class="flex gap-2">
-                        <span class="px-3 py-1 text-xs font-medium rounded-full text-white"
+                        <span class="px-3 py-1 text-xs font-medium rounded-full"
                             :class="
                             // index === 0 ? 'bg-white text-[#2D0C8C]' : 'bg-[#F1EFFB] text-[#2D0C8C]',
-                            index==0?(isDarkTheme ? ' text-black bg-[#163B9F]   ' : '  bg-[#FFFFFF2E]') : (isDarkTheme ? 'text-white opacity-80' : 'text-gray-500')
+                            index==0?(isDarkTheme ? ' text-white bg-[#163B9F]   ' : '  bg-[#FFFFFF2E]') : (isDarkTheme ? 'text-[#163B9F] bg-white ' : 'text-white bg-[#163B9F] ')
                             ">
                             {{ card.status || '12 Hours Overdue' }}
                         </span>
