@@ -76,7 +76,7 @@
         </div>
 
         <!-- Action Button -->
-        <button class="mt-6 w-full py-2 rounded-full bg-[#2E1F79] text-white hover:bg-[#241964] transition">
+        <button class="mt-6 w-full py-2 rounded-full bg-[#2E1F79] text-white hover:bg-[#241964] transition cursor-pointer">
           Send email
         </button>
       </div>

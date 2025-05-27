@@ -26,9 +26,8 @@
         </span>
 
       </button>
-      <div class="relative  p-3 rounded-full m-0 hover:bg-white bg-transparent  cursor-pointer" :class="isDarkTheme ? 'border-Primary' : 'border-Primary-dark'">
+      <div class="relative  p-3 rounded-full m-0 hover:bg-white bg-transparent  cursor-pointer" :class="isDarkTheme ? 'border-Primary' : 'border-Primary-dark'" @click="goToProjects">
         <span v-html=" Notification "></span>
-
       </div>
       <div class=" p-2 rounded-full hover:bg-white bg-transparent  cursor-pointer"  :class="isDarkTheme ? 'border-Primary' : ' border-Primary-dark'">
         <img src="../assets/avatar.png" alt="Avatar" class="w-7 h-7 rounded-full" />
@@ -55,8 +54,12 @@ export default {
     ...mapGetters(['isDarkTheme'])
   },
   methods: {
-    ...mapMutations(['toggleTheme'])
-  }
+    ...mapMutations(['toggleTheme']),
+    goToProjects() {
+      this.$router.push('/project');
+    }
+  },
+
 };
 
 </script>

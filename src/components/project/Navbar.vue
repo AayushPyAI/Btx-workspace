@@ -18,7 +18,7 @@
     <!-- Notifications and Profile -->
     <div class="flex items-center gap-4">
 
-        <div class="p-3 rounded-full  hover:bg-gray-100 cursor-pointer">
+        <div class="p-3 rounded-full  hover:bg-gray-100 cursor-pointer" @click="goTodashboard">
              <span v-html="Notification" class="w-6 h-6 " />
         </div>
         
@@ -79,7 +79,16 @@ export default{
                 searchIcon2,
                 callIcon
         }
+    },
+
+  methods: {
+    goTodashboard() {
+      this.$router.push('/');
     }
+  }
+
+
+
     
 }
 

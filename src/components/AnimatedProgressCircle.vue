@@ -1,63 +1,42 @@
 <template>
   <div class="lead-score-container">
+    <!-- Background image ring -->
+    <div class="bg-ring-image"></div>
+
+    <!-- Progress Ring in SVG -->
     <svg viewBox="0 0 200 200" class="lead-score-ring">
-      <!-- Gradient for progress -->
       <defs>
-        <linearGradient id="gradient" x1="1" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#3db2ff" />
-          <stop offset="100%" stop-color="#00c9ff" />
+        <linearGradient :id="headingName ?'gradient-1':'gradient-2'" x1="1" y1="0" x2="0" y2="1">
+          <stop offset="0%" :stop-color="headingName  ? '#CF3393' : '#5CB1E2'" />
+          <stop offset="100%" :stop-color="headingName ? '#FF94D6' : '#B7E4FF'" />
         </linearGradient>
       </defs>
-
-      <!-- Base Ring -->
+  
+      <!-- Only progress ring now -->
       <circle
-        class="bg-ring"
+        :class="headingName?'progress-ring-1':'progress-ring-2'"
         cx="100"
         cy="100"
-        r="90"
-        stroke-width="36"
-        fill="none"
-      />
-
-      <!-- Progress Ring -->
-      <circle
-        class="progress-ring"
-        cx="100"
-        cy="100"
-        r="90"
-        stroke-width="36"
+        r="81.5"
+        stroke-width="40"
         fill="none"
         :style="{
           strokeDasharray: circumference,
           strokeDashoffset: progressOffset
         }"
       />
-
-      <!-- Dashed Segment (Remaining arc) -->
-      <circle
-        class="dashed-ring"
-        cx="100"
-        cy="100"
-        r="90"
-        stroke-width="36"
-        fill="none"
-        :style="{
-          strokeDasharray: dashPattern,
-          strokeDashoffset: dashedOffset
-        }"
-      />
     </svg>
 
     <!-- Score in center -->
-    <div class="score-text">
+    <div class="score-text text-primary">
       <span class="score">{{ animatedScore }}</span>
-      <div class="label">Lead Score</div>
+      <div class="label">{{ !headingName?'Lead Score':'Behavior Score'}}</div>
+       
     </div>
   </div>
 </template>
 
 <script>
-import { ref, computed, onMounted } from 'vue'
 import gsap from 'gsap'
 
 export default {
@@ -70,101 +49,106 @@ export default {
     duration: {
       type: Number,
       default: 2
+    },
+    headingName: {
+      type: Boolean,
+      default: false
     }
   },
-  setup(props) {
-    const radius = 90
+  data() {
+    const radius = 78
     const circumference = 2 * Math.PI * radius
-
-    const progressOffset = ref(circumference)
-    const animatedScore = ref(0)
-
-    const filledRatio = props.score / 100
-    const emptyRatio = 1 - filledRatio
-
-    // Dashed Ring Pattern
-    const dashPattern = '2,6' // dot length and gap
-
-    // Compute dashed ring offset so it starts exactly after the progress
-    const dashedOffset = computed(() => {
-      return -circumference * filledRatio
-    })
-
-    onMounted(() => {
-      // Animate filled ring
-      gsap.to(progressOffset, {
-        value: circumference - (props.score / 100) * circumference,
-        duration: props.duration,
-        ease: 'power2.out'
-      })
-
-      // Animate number count
-      gsap.to(animatedScore, {
-        value: props.score,
-        duration: props.duration,
-        ease: 'power2.out',
-        onUpdate: () => {
-          animatedScore.value = Math.round(animatedScore.value)
-        }
-      })
-    })
-
     return {
+      radius,
       circumference,
-      progressOffset,
-      dashPattern,
-      dashedOffset,
-      animatedScore
+      progressOffset: circumference,
+      animatedScore: 0
     }
+  },
+  mounted() {
+    // Animate ring offset
+    gsap.to(this.$data, {
+      progressOffset: this.circumference - (this.score / 100) * this.circumference,
+      duration: this.duration,
+      ease: 'power2.out'
+    })
+
+    // Animate number
+    gsap.to(this.$data, {
+      animatedScore: this.score,
+      duration: this.duration,
+      ease: 'power2.out',
+      onUpdate: () => {
+        this.animatedScore = Math.round(this.animatedScore)
+      }
+    })
+
+   console.log(this.headingName);
   }
 }
 </script>
 
 <style scoped>
 .lead-score-container {
-  width: 200px;
-  height: 200px;
   position: relative;
+  width: 220px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+.bg-ring-image {
+  position: absolute;
+  width: 181px;
+  height: 181px;
+  background-image: url('../assets/backImage.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  z-index: 1;
 }
 
 .lead-score-ring {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  width: 185px;
+  height: 180px;
   transform: rotate(-90deg);
+  z-index: 2;
 }
 
-.bg-ring {
-  stroke: #d4f0ff2f;
-}
-
-.progress-ring {
-  stroke: url(#gradient);
+.progress-ring-1 {
+  stroke: url(#gradient-1);
+  stroke-linecap: round;
   transition: stroke-dashoffset 0.3s;
 }
 
-.dashed-ring {
-  stroke: rgba(255, 255, 255, 0.3); /* Light lines */
+.progress-ring-2 {
+  stroke: url(#gradient-2);
   stroke-linecap: round;
-  stroke-dasharray: 2, 6;
-  pointer-events: none;
+  transition: stroke-dashoffset 0.3s;
 }
 
 .score-text {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  z-index: 3;
   text-align: center;
-  color: black;
 }
 
 .score {
-  font-size: 32px;
+  font-size: 36px;
   font-weight: bold;
+  line-height: 1;
 }
 
 .label {
-  font-size: 14px;
-  opacity: 0.7;
+  font-size: 9px;
+  opacity: 1;
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+   text-align: center;
+   font-weight:600;
 }
 </style>
