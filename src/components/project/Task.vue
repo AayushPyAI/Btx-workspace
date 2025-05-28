@@ -21,10 +21,11 @@
 
 <script>
 import Taskcard from './Taskcard.vue';
-
+import NotesCard from './NotesCard.vue';
 export default {
   components: {
-    Taskcard
+    Taskcard,
+    NotesCard
   },
   data() {
     return {
