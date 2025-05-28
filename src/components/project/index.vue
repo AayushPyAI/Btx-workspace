@@ -66,12 +66,11 @@
  
   </div>
 
-     <!-- <div class="mt-6">
+     <div class="mt-6">
       <Task v-if="activeTab === 'Task'" />
-      <div v-if="activeTab === 'Task'" class="text-black">hello</div>
-    </div> -->
+      <Notes v-if="activeTab === 'Notes'" />
 
-    <Task/>
+    </div>
 
     </div>
 
@@ -81,6 +80,7 @@
 <script>
 import Navbar from './Navbar.vue';
 import Task from './Task.vue';
+import Notes from './Notes.vue';
 import {
   phoneIcon,
   messageBoxIcon,
@@ -98,7 +98,9 @@ import {
 export default {
   components: {
     Navbar,
-    Task
+    Task,
+    Notes
+
   },
   data() {
     return {
